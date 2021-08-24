@@ -1,25 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
+import logo from './image/logo.png';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import StartPage from './pages/customer/StartPage/View';
+
+const Image = styled.img`
+  height: 3rem;
+  justify-content: center;
+  margin: auto;
+`;
+
+const Header = styled.div`
+  width:100%;
+  height: 3rem;
+  background-color: #DC6E3F;
+  text-align : center;
+`;
+
+const Body= styled.div`
+  background-color:black;
+  width:100%;
+  height:calc(100vh - 3rem);
+  text-align : center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Header>
+            <Image src={logo} />
+        </Header>
+        <Body>
+            <Switch>
+                <Route path='/' component={StartPage} exact={true} />
+            </Switch>
+        </Body>
+    </BrowserRouter>
   );
 }
 
