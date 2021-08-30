@@ -5,7 +5,8 @@
       "@pages/*": ["src/pages/*"],
       "@images/*": ["src/image/*"],
       "@components/*": ["src/components/*"],
-      "@api": ["src/api"]
+      "@api": ["src/api"],
+      "@dto": ["src/dto/*"]
     }
   }
 }
