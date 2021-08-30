@@ -4,6 +4,7 @@ import styled from "styled-components";
 import logo from './image/logo.png';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import StartPage from './pages/customer/StartPage/View';
+import SelectPage from "@pages/customer/SelectPage/View";
 
 const Image = styled.img`
   height: 3rem;
@@ -34,6 +35,7 @@ function App() {
         <Body>
             <Switch>
                 <Route path='/' component={StartPage} exact={true} />
+                <Route path='/selectSample' component={SelectPage} exact={true} />
             </Switch>
         </Body>
     </BrowserRouter>
