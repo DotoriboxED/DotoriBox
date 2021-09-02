@@ -7,42 +7,18 @@ import {useLocation} from 'react-router';
 import WarningPopup from '@components/InvalidPopup';
 import {SampleDto} from "../../../../dto/sampleDto";
 import {StockDto} from "../../../../dto/stockDto";
-
-const Button = styled.button`
-  width: calc(100% - 2rem);
-  height: 2.5rem;
-  background-color: #e7713f;
-  font-family: SpoqaHanSansNeo;
-  font-size: 0.8rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.46;
-  letter-spacing: -0.07px;
-  color: #ffffff;
-  border: none;
-  position: fixed;
-  bottom: 0;
-  margin: 0 0 1rem 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-`;
-
+import BottomButton from "@components/BottomButton";
 
 const Main = styled.div`
     width: 100%;
     height: 100%;
-`
-
-const List = styled.div`
-  padding: 1em 1rem 4.5rem 1rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
-const ButtonWrapper = styled.div`
+const List = styled.div`
+  padding: 1em 1rem 3.5rem 1rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 function App() {
@@ -65,17 +41,6 @@ function App() {
     useEffect(() => {
         getProduct()
     }, []);
-
-    // useEffect(() => {
-    //     let images = []
-    //     Products.map((product, index) => {
-    //         SampleApi.getInfoImage(product.id).then((res: { data: any; }) => {
-    //             images.push(res.data)
-    //         });
-    //     });
-    //
-    //     setImages(images);
-    // }, [Products]);
 
     function getProduct() {
         TaxiAPI.findStock(Code, { isDeleted: false }).then((res) => {
@@ -107,12 +72,13 @@ function App() {
 
     return (
         <Main>
+
             <List>
                 {renderLists}
             </List>
-                <Button onClick={() => {
+                <BottomButton onClick={() => {
                     checkValid()
-                }}><b>카트로 이동하기</b></Button>
+                }}><b>카트로 이동하기</b></BottomButton>
             <WarningPopup isValid={isValid} setValid={setIsValid} message={<div>상품을 하나<br/>골라 주세요.</div>}/>
         </Main>
     );

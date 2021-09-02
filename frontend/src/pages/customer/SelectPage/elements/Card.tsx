@@ -5,12 +5,13 @@ import {API_URL} from "@api";
 
 
 const Each = styled.div`
-  width: 100%;
+  width: calc(100% - 0.4rem);
   height: 16.1rem;
   justify-content: center;
   bottom: 0;
   border: 0.2rem solid;
   background-color: white;
+  margin-bottom: 1rem;
 `
 const Name = styled.div`
   font-family: SpoqaHanSansNeo;
