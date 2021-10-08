@@ -1,8 +1,7 @@
 name: Deploy to EB
 on:
   push:
-    branches:
-      - main
+    branches: [master]
 
 jobs:
   buildAndTest:
@@ -24,6 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
       - name: Run build
         run: npm run build
 
