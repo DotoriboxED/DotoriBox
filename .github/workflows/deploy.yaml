@@ -30,9 +30,11 @@ jobs:
   deploy:
     name: CD Pipeline
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [ '14.x' ]
+
     needs: buildAndTest
     steps:
       - uses: actions/checkout@v2
@@ -40,20 +42,25 @@ jobs:
         run: |
           touch .env echo PORT=8081 >> .env
           echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
-          cat .env # Initialize Node.js
+          cat .env
 
       - name: Install Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v1
-      - with:
-         node-version: ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - name: Install dependencies
         run: npm install
+
       - name: Run build
         run: npm run build
+
       - name: Install AWS CLI 2
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip which aws sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+          unzip awscliv2.zip
+          which aws
+          sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 
       - name: Configure AWS credentials
         uses: aws/actions/configure-aws-credentials@v1
