@@ -90,4 +90,4 @@ jobs:
           environment_name: Dotoribox_env
           region: ${{ secrets.AWS_REGION }}
           version_label: ${{github.SHA}}
-          deployment_package: deploy.zip
+          deployment_package: ./backend/deploy.zip
