@@ -33,6 +33,9 @@ jobs:
     name: CD Pipeline
     runs-on: ubuntu-latest
 
+    env:
+      working-directory: ./backend
+
     strategy:
       matrix:
         node-version: [ '14.x' ]
