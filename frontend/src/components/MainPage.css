@@ -1,0 +1,81 @@
+.main{
+    max-width: 350px;
+    min-height: 80vh;
+    background-image: url(../img/mainimg.png);
+    padding: 16px;
+
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color : #fff;
+}
+
+.dotoribox{
+    text-align: left;
+    font-size: 23px;
+}
+
+.textbox1{
+    text-align: left;
+    height: 70px;
+    width: 250px;
+    padding : 18px 12px 12px;
+    font-size: 25px;
+}
+
+.textbox2{
+    text-align: left;
+    font-size: 13px ;
+    padding :5px 12px 12px;
+}
+
+.textbox2_2{
+    padding-top: 6px;    
+}
+
+
+.textbox3{
+    text-align: left;
+    font-size: 20px;
+    padding :300px 12px 0px 12px;
+}
+
+.textbox4{
+    text-align: left;
+    font-size: 13px;
+    padding :6px 12px 12px;
+}
+
+.dotorilogo-img{
+    width: 120px;
+    height: 22px;
+}
+
+.menu-img{
+    width: 20px;
+    height: 20px;
+}
+
+.inputNumber{
+    background-color:transparent;
+    padding: 0px;
+    border : 0px;
+    width:317.2px;
+    height: 25px;
+}
+
+.horizon{
+    width:"317px"
+}
+
+.horizon > hr{
+    border-color: #afabab;
+}
+
+.startButton, .okayButton, .take-button, .couponButton{
+    width: 317.2px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #c4442a;
+    color: #fff;
+}

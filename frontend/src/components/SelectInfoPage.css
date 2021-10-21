@@ -1,0 +1,9 @@
+.genderM, .genderW{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 0.5px #eaeaea;
+    background-color: #fff;
+    color: #6a707e;
+    font-weight: bold;
+}

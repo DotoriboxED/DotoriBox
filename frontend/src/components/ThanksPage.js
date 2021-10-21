@@ -19,3 +19,5 @@ function ThanksPage(){
     
 
 }
+
+export default ThanksPage;
