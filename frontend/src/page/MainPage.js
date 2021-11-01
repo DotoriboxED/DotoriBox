@@ -1,9 +1,6 @@
 import React from "react";
-import "./MainPage.css";
-import Menu from "../img/menu.png" ;
-import Dotorilogo from "../img/dotorilogo.png";
+import "../components/MainPage.css";
 import {Link} from "react-router-dom";
-import styled from "styled-component";
 
 function MainPage(){
     return(

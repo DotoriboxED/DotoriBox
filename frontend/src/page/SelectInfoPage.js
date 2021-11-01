@@ -1,10 +1,8 @@
 import React, {useState} from "react";
-import Menu from "../img/menu.png" ;
-import Dotorilogo_color from "../img/dotorilogo_color.png";
 import {Link} from "react-router-dom";
-import Progressbar from "./Progressbar";
-import "./SelectInfoPage.css";
-import Dropdown from './Dropdown.js';
+import Progressbar from "../components/Progressbar";
+import "../components/SelectInfoPage.css";
+import Dropdown from '../components/Dropdown.js';
 
 function SelectInfoPage(){
     const [gender, setGender] = useState(undefined);
