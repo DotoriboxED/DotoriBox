@@ -7,7 +7,7 @@ const Main = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: url("src/img/mainimg.png"); 
+  background: url("../../src/img/mainimg.png"); 
 `;
 
 const Textbox_1 = styled.div`

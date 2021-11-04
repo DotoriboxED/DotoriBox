@@ -10,6 +10,7 @@ const Header = styled.h2`
   margin-top: 0;
   font-size: 1.563rem;
   font-weight: bolder;
+  margin-bottom: 1rem;
 `;
 
 const Main = styled.div`
@@ -52,19 +53,47 @@ const InfoText = styled.div`
 
 const SampleImage = styled.div`
   display: block;
-  margin: 3.8% auto 5.5% 0;
+  margin: 6% auto 10% 0;
   width: 100%;
   height: 100%;
   max-width: 500px;
+  position: relative;
 `;
 
 const Image = styled.img`
   width: 76.5%;
+  height: 100%;
+`;
+
+const Gradient = styled.div`
+  background: linear-gradient(transparent, 65%, black);
+  width: 76.5%;
+  height: 100%;
+  border-radius: 3%;
+  z-index: 2;
+  position: absolute;
 `;
 
 const SubmitButton = styled(Button)`
   margin-top: 2rem;
 `;
+
+const Manufactured = styled.div`
+  color: white;
+  position: absolute;
+  bottom: 1.313rem;
+  left: 1rem;
+`
+
+const ItemFor = styled.div`
+  color: white;
+  border: white solid 1px;
+  font-size: 0.5rem;
+  position: absolute;
+  bottom: 1.313rem;
+  right: 1rem;
+  padding: 2px;
+`
 
 function ThanksPage(){
     return (
@@ -72,6 +101,13 @@ function ThanksPage(){
         <Header>감사합니다</Header>
         <Text>목적지 도착 후 안전한 하차 상황에서<br/>기사님께 말씀드리면, 샘플을 건네주실 거에요</Text>
         <SampleImage>
+          <Gradient>
+            <Manufactured>
+              <h4>CJ 헬스케어</h4>
+              <h2>컨디션 환 1포</h2>
+            </Manufactured>
+            <ItemFor>30대 남성 추천</ItemFor>
+          </Gradient>
           <Image src={image} />
         </SampleImage>
           <Footer>
