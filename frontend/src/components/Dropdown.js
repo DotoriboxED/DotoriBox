@@ -3,7 +3,7 @@ import './Dropdown.css';
 
 function Dropdown({selected, setSelected}){
     const [isActive, setIsActive] = useState(false);
-    const options = ['10대','20대', '30대','40대','50대','60대','70대']
+    const options = ['10대','20대', '30대','40대','50대','60대','70대'];
 
     return(
     <div className="dropdown">

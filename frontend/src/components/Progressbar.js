@@ -2,14 +2,15 @@ import React from "react";
 
 function Progressbar(){
     return(
-        <div className="progress-bar" style={{
-            display:"flex",
-        }}>
-            <div className='1' style={{}}></div>
-            <div className='2'></div>
-            <div className='3'></div>
-            <div className='4'></div>
-            <div className='5'></div>
+        <div className="container">
+
+            <div className="progress-container">
+                <div className="progress" id="progress"></div>
+                <div className="step active"></div>
+                <div className="step active"></div>
+                <div className="step active"></div>
+                <div className="step active"></div>
+            </div>
         </div>
     )
 }

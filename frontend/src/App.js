@@ -1,14 +1,20 @@
 import Navbar from "./components/Navbar";
-
 import pages from './page/index'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' ;
-
 import styled from "styled-components";
+import image from "./img/mainimg.png";
 
-const Main = styled.div`
+
+
+
+let Main = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: auto;
+  background-image : url(${image});
+  background-size : cover;
+  background-repeat : no-repeat;
+  background-position : center;
 `;
 
 const Page = styled.div`

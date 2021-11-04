@@ -1,54 +1,50 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import styled from 'styled-components'
 
 
+const Main = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: url("src/img/mainimg.png"); 
+`;
 
-// const Main = styled.div`
-// max-width: 350px;
-// min-height: 80vh;
-// background-image: url(../img/mainimg.png);
-// padding: 16px;
+const Textbox_1 = styled.div`
+    text-align: left;
+    height: 70px;
+    width: 250px;
+    padding : 18px 12px 12px;
+    font-size: 25px;
+`;
 
-// border-radius: 5px;
-// border: 1px solid #ddd;
-// color : #fff;
-// `;
+const Textbox_2 = styled.div`
+    text-align: left;
+    font-size: 13px ;
+    padding :5px 12px 12px;
+`; 
 
-// const Textbox_1 = styled.div`
-// text-align: left;
-// height: 70px;
-// width: 250px;
-// padding : 18px 12px 12px;
-// font-size: 25px;
-// `;
+const Textbox2_2 = styled.div`
+    padding-top: 6px; 
+`;
 
-// const Textbox_2 = styled.div`
-// text-align: left;
-// font-size: 13px ;
-// padding :5px 12px 12px;
-// `; 
+const Textbox_3 = styled.div`
+    text-align: left;
+    font-size: 20px;
+    padding :300px 12px 0px 12px;
+`;
 
-// const Textbox2_2 = styled.div`
-// padding-top: 6px; 
-// `;
-
-// const Textbox_3 = styled.div`
-// text-align: left;
-// font-size: 20px;
-// padding :300px 12px 0px 12px;
-// `;
-
-// const Textbox_4 = styled.div`
-// text-align: left;
-// font-size: 13px;
-// padding :6px 12px 12px;
-// `;
+const Textbox_4 = styled.div`
+    text-align: left;
+    font-size: 13px;
+    padding :6px 12px 12px;
+`;
 
 
  
 function MainPage(){
     return(
-        <div>
+        <Main>
             <div className="textbox1">
                 새로운 택시경험
                 <br/>   
@@ -69,9 +65,7 @@ function MainPage(){
             <div className="horizon"><hr/></div>
             
             <Link to='selectInfo'><button className="startButton">시작하기</button></Link>
-        </div>
+        </Main>
     )
 }
-
-
 export default MainPage;
