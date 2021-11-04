@@ -4,7 +4,7 @@ import Dotorilogo_color from "../img/dotorilogo_color.png";
 import {Link} from "react-router-dom";
 import Progressbar from "./Progressbar";
 import "./SelectInfoPage.css";
-import Dropdown from './Dropdown.js';
+import Dropdown from "./Dropdown.js";
 
 function SelectInfoPage(){
     const [gender, setGender] = useState(undefined);
@@ -15,7 +15,12 @@ function SelectInfoPage(){
     }
 
 
-    // const [selectAge,setSelectAge] = useState();
+    const [selected,setSelected] = useState("연령대");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       this.props.onCreate(this.state);
+      }
 
     return(
         <div className="SelectInfo">
@@ -31,17 +36,17 @@ function SelectInfoPage(){
             <div className="textbox3">
                 성별
             </div>
-            <button className="genderM" onClick={handleChangeButtonCololr} style={gender===true?{backgroundColor:'#c4442a'}:{backgroundColor:'#fff'}}>남성</button>
-            <button className="genderW" onClick={handleChangeButtonCololr} style={gender===false?{backgroundColor:'#c4442a'}:{backgroundColor:'#fff'}}>여성</button>            
-            <div className="textbox4">
-                연령대
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <button className="genderM" onClick={handleChangeButtonCololr} style={gender===true?{backgroundColor:'#c4442a'}:{backgroundColor:'#fff'}}>남성</button>
+                <button className="genderW" onClick={handleChangeButtonCololr} style={gender===false?{backgroundColor:'#c4442a'}:{backgroundColor:'#fff'}}>여성</button>            
+                <Dropdown selected={selected} setSelected={setSelected}/>
+                <Link to='recommend'><button type ="submit" className="okayButton">확인</button></Link>
+            </form>
             
-            <div className="age-dropdown">
-                {/* <Dropdown/> */}
-            </div>
+                
 
-            <Link to='recommend'><button className="okayButton">확인</button></Link>
+
+            
         </div>
     )
 }
