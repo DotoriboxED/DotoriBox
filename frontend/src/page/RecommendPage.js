@@ -1,6 +1,4 @@
 import React from "react";
-import Menu from "../img/menu.png" 
-import Dotorilogo_color from "../img/dotorilogo_color.png"
 
 
 function RecommendPage (){

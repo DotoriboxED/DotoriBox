@@ -1,9 +1,7 @@
 import React from "react";
-import "./MainPage.css";
-import Menu from "../img/menu.png" ;
-import Dotorilogo from "../img/dotorilogo.png";
 import {Link} from "react-router-dom";
-import styled from "styled-components";
+
+
 
 // const Main = styled.div`
 // max-width: 350px;
@@ -50,7 +48,7 @@ import styled from "styled-components";
  
 function MainPage(){
     return(
-        <div className="main">
+        <div>
             <div className="textbox1">
                 새로운 택시경험
                 <br/>   
