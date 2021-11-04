@@ -1,67 +1,76 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components'
+import style from '../components/PageResource';
 
+const { Footer,InputData, Button } = style;
 
 const Main = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: url("src/img/mainimg.png"); 
+  color : #ffffff;
+  `;
+
+const Header = styled.div`
+    font-size : 1.563rem;
+    font-weight : bolder;
+    padding : calc(35px + 8%) 0 1.8% 0; 
+    letter-spacing: -0.25px;
 `;
 
-const Textbox_1 = styled.div`
-    text-align: left;
-    height: 70px;
-    width: 250px;
-    padding : 18px 12px 12px;
-    font-size: 25px;
+const Info1 = styled.div`
+    text-align : left;
+    
 `;
 
-const Textbox_2 = styled.div`
-    text-align: left;
-    font-size: 13px ;
-    padding :5px 12px 12px;
-`; 
-
-const Textbox2_2 = styled.div`
-    padding-top: 6px; 
+const Text1 = styled.p`
+    font-size:0.813rem; 
+    letter-spacing: -0.13px; 
 `;
 
-const Textbox_3 = styled.div`
-    text-align: left;
-    font-size: 20px;
-    padding :300px 12px 0px 12px;
-`;
-
-const Textbox_4 = styled.div`
-    text-align: left;
-    font-size: 13px;
-    padding :6px 12px 12px;
+const Info2 =styled(Info1)`
+    margin : 90% 0 0 0;
+    margin-top : auto;
 `;
 
 
+const Text2_1 = styled.div`
+    font-size: 0.938rem;
+    letter-spacing: -0.15px;
+`;
+const Text2_2 = styled.div`
+    font-size: 0.813rem;
+    letter-spacing: -0.13px;
+    margin : 5% 0 5% 0;
+`;
+const ButtonStart = styled(Button)`
+    margin : 15% 0 0 0;
+`;
  
 function MainPage(){
     return(
         <Main>
-            <div className="textbox1">
+            <Header>
                 새로운 택시경험
                 <br/>   
                 도토리박스와 함께
-            </div>
-            <div className="textbox2">
-                <div className="textbox2_1">새로운 상품을 무료로 체험해보세요</div>
-                <div className="textbox2_2">숙취해소제, 초콜릿, 등 다양한 무료샘플</div>
-            </div>
-            <div className="textbox3">
-                고유번호를 입력해주세요
-            </div>
-            <div className="textbox4">
-                운전석과 조수석 사이 설치된 도토리박스에 적혀있어요
-            </div>
+            </Header>
+            <Info1>
+                <Text1>
+                    새로운 상품을 무료로 체험해보세요<br/>
+                    숙취해소제, 초콜릿, 등 다양한 무료샘플
+                </Text1>
+            </Info1>
+            <Footer>
+            <Info2>
+                <Text2_1><b>고유번호를 입력해주세요</b></Text2_1>
+                <Text2_2>운전석과 조수석 사이 설치된 도토리박스에 적혀있어요</Text2_2>
+            </Info2>
+            <InputData />
+            <Link to='selectInfo'><ButtonStart>시작하기</ButtonStart></Link>
+            </Footer>
             
-            <Link to='selectInfo'><button className="startButton">시작하기</button></Link>
         </Main>
     )
 }
