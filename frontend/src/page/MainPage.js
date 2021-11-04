@@ -61,9 +61,6 @@ function MainPage(){
                 운전석과 조수석 사이 설치된 도토리박스에 적혀있어요
             </div>
             
-            <input className="inputNumber" type="text"/>
-            <div className="horizon"><hr/></div>
-            
             <Link to='selectInfo'><button className="startButton">시작하기</button></Link>
         </Main>
     )

@@ -19,6 +19,43 @@ const Button = styled.button`
   margin-top: auto;
 `;
 
-const Style = { Header, Button }
+const Text = styled.p`
+  font-family: SpoqaHanSansNeo;
+  font-size: 0.813rem;
+  line-height: 1.92;
+  color: #6a707e;
+  font-weight: normal;
+`;
+
+const Input = styled.input`
+  background-color:transparent;
+  padding: 0;
+  border : 0;
+  width: 100%;
+  height: 2rem;
+`;
+
+const Horizon = styled.hr`
+  width: 100%;
+  color: #afabab;
+`;
+
+const Footer = styled.div`
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputData = () => {
+  return (
+    <>
+      <Input type="text"/>
+      <Horizon />
+    </>
+  )
+}
+
+const Style = { Header, Button, Text, InputData, Footer }
 
 export default Style;
