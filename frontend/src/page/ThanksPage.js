@@ -48,6 +48,7 @@ const InfoText = styled.div`
   text-align: center;
   color: #bcb9b9;
   margin-top: 1.594rem;
+  margin-bottom: 2.25rem;
   text-decoration: underline;
 `;
 
