@@ -33,6 +33,7 @@ const NavMenu = styled.nav`
   width: 100%;
   background: white;
   border-bottom: 1.8px solid #afabab;
+  z-index: 1000;
 `;
 
 const List = styled.ul`

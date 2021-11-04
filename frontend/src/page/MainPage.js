@@ -9,8 +9,13 @@ const Main = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   color : #ffffff;
   `;
+=======
+  background: url("../../src/img/mainimg.png"); 
+`;
+>>>>>>> 0fe7638e16b2ae70b5397d8cf873401e00866cad
 
 const Header = styled.div`
     font-size : 1.563rem;
