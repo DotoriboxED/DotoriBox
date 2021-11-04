@@ -13,17 +13,25 @@ const Text = styled.p`
 
 const Header = styled.h2`
   padding-bottom: 10px;
-  font-size: 1.3rem;
+  margin-top: 0;
+  font-size: 1.563rem;
   font-weight: bolder;
 `;
 
 const Footer = styled.div`
-  bottom: 0;
+  bottom: 4.75rem;
+  position: absolute;
+  flex: 1;
 `;
 
 const Main = styled.div`
   width: 100%;
   height: 100%;
+  flex-direction: column;
+`;
+
+const InfoText = styled(Text)`
+  margin-top: auto;
 `;
 
 function InformPage() {
@@ -46,7 +54,7 @@ function InformPage() {
         <Text><b>개인정보의 수집 및 이용에 대한 동의를 거부할 수 있으며 이 경우 이벤트 참여가 제한됩니다.</b></Text>
       </Info>
       <Footer>
-        <Text><b>문의 : sjpark@pickdotori.com</b></Text>
+        <InfoText>문의 : sjpark@pickdotori.com</InfoText>
       </Footer>
     </Main>
   )

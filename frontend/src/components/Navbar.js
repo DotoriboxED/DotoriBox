@@ -29,7 +29,7 @@ const CloseIcon = styled(FaIcons.FaTimes)`
 
 const NavMenu = styled.nav`
   position: fixed;
-  top: calc(71px + 0.8rem);
+  top: 80px;
   width: 100%;
   background: white;
   border-bottom: 1.8px solid #afabab;
@@ -65,10 +65,6 @@ function Navbar() {
           sidebar ? <CloseIcon onClick={showSidebar}/> : <MenuIcon onClick={showSidebar} />
         }
       </NavBar>
-      {/*{sidebar && (*/}
-      {/*  <nav className="nav-menu">*/}
-      {/*  </nav>*/}
-      {/*)}*/}
       {
         sidebar && 
           <NavMenu>

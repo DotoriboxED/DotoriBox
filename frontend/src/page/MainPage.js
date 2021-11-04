@@ -1,10 +1,9 @@
 import React from "react";
-import "../components/MainPage.css";
 import {Link} from "react-router-dom";
 
 function MainPage(){
     return(
-        <div className="main">
+        <div>
             <div className="textbox1">
                 새로운 택시경험
                 <br/>   

@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from "./components/Navbar";
 
 import pages from './page/index'
@@ -7,22 +6,29 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' ;
 import styled from "styled-components";
 
 const Main = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+`;
+
+const Page = styled.div`
   width: calc(100% - 50px);
-  height: 100%;
-  padding: 25px;
+  min-height: calc(100vh - 105px);
+  height: calc(100vh - 105px);
+  padding: 0 25px 25px 25px;
 `;
 
 const Nav = styled(Navbar)`
-  height: 150px;
+  height: 80px;
   width: 100%;
 `;
 
 function App() {
   return (
-
-      <Router>
+    <Main>
         <Nav />
-        <Main>
+        <Page>
+          <Router>
           <Switch>
             <Route path='/' exact component={pages.MainPage}/>
             <Route path='/selectInfo' component={pages.SelectInfoPage}/>
@@ -31,9 +37,9 @@ function App() {
             <Route path='/experience'  component={pages.ExperiencePage}/>
             <Route path='/information' component={pages.InformPage} />
           </Switch>
-        </Main>
-      </Router>
-    
+          </Router>
+        </Page>
+    </Main>
   );
 }
 
