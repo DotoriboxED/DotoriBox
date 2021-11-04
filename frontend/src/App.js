@@ -1,13 +1,12 @@
 import Navbar from "./components/Navbar";
 import pages from './page/index'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' ;
+import {BrowserRouter as Router, Switch, Route, useLocation} from 'react-router-dom' ;
 import styled from "styled-components";
 import image from "./img/mainimg.png";
+import { useEffect, useState } from "react";
+import Background from "./components/Background";
 
-
-
-
-let Main = styled.div`
+const Main = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: auto;
@@ -31,10 +30,11 @@ const Nav = styled(Navbar)`
 
 function App() {
   return (
-    <Main>
+    <Router>
+    <Background>
         <Nav />
         <Page>
-          <Router>
+
           <Switch>
             <Route path='/' exact component={pages.MainPage}/>
             <Route path='/selectInfo' component={pages.SelectInfoPage}/>
@@ -43,9 +43,10 @@ function App() {
             <Route path='/experience'  component={pages.ExperiencePage}/>
             <Route path='/information' component={pages.InformPage} />
           </Switch>
-          </Router>
+
         </Page>
-    </Main>
+    </Background>
+    </Router>
   );
 }
 
