@@ -21,6 +21,7 @@ const Page = styled.div`
   min-height: calc(100vh - 105px);
   height: calc(100vh - 105px);
   padding: 0 25px 25px 25px;
+  position: relative;
 `;
 
 const Nav = styled(Navbar)`

@@ -49,13 +49,7 @@ function SelectInfoPage(){
     const [gender, setGender] = useState(undefined);
 
     useEffect(() => {
-        
     }, [gender])
-
-    const handleChangeButtonCololr = (e) => {
-        setGender(!gender);
-        console.log(gender);
-    }
 
     const [selected,setSelected] = useState("연령대");
 
