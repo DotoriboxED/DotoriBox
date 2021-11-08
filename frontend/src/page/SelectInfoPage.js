@@ -14,11 +14,6 @@ const Main = styled.div`
   flex-direction: column;
 `;
 
-const Info1 = styled.div`
-  text-align: left;
-  padding: calc(35px + 8%) 0 1.8% 0;
-`;
-
 const Info2 = styled.div`
   text-align: left;
   padding: 1.8% 0 0 0;
@@ -35,8 +30,20 @@ const TextGender = styled.div`
   letter-spacing: -0.13px;
 `;
 
-const FooterSubmit = styled(Footer)`
-  margin-top: auto;
+const GenderButton = styled.button`
+  width: 9.375rem;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 0.5px #eaeaea;
+  background-color: ${props => props.selected ? "#c4442a" : '#fff'};
+  color: ${props => props.selected ? "#fff" : "#6a707e"};
+  font-weight: bold;
+`;
+
+const BtnContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 function SelectInfoPage() {
@@ -62,30 +69,20 @@ function SelectInfoPage() {
       <Info3>
         <TextGender>성별</TextGender>
       </Info3>
-      <div>
-        <button
-          className="genderM"
+      <BtnContainer>
+        <GenderButton
           onClick={() => setGender(true)}
-          style={
-            gender === true
-              ? { backgroundColor: "#c4442a", color: "#fff" }
-              : { backgroundColor: "#fff" }
-          }
+          selected={gender === true}
         >
           남성
-        </button>
-        <button
-          className="genderW"
+        </GenderButton>
+        <GenderButton
           onClick={() => setGender(false)}
-          style={
-            gender === false
-              ? { backgroundColor: "#c4442a", color: "#fff" }
-              : { backgroundColor: "#fff" }
-          }
+          selected={gender === false}
         >
           여성
-        </button>
-      </div>
+        </GenderButton>
+      </BtnContainer>
 
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
