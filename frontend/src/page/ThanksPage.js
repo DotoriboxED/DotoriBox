@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import style from '../components/PageResource';
-import image from '../img/TestSampleImg.png'
+import style from "../components/PageResource";
+import image from "../img/TestSampleImg.png";
 import Card from "../components/Card";
 import { useHistory } from "react-router-dom";
 import Progressbar from "../components/Progressbar";
@@ -59,24 +59,32 @@ const SubmitButton = styled(Button)`
   margin-top: 2rem;
 `;
 
-function ThanksPage(){
+function ThanksPage() {
   const history = useHistory();
 
-    return (
-      <Main>
-        <Progressbar state={4}/>
-        <Header>감사합니다</Header>
-        <Text>목적지 도착 후 안전한 하차 상황에서<br/>기사님께 말씀드리면, 샘플을 건네주실 거에요</Text>
-        <Card image={image} />
-          <Footer>
-            <SampleText>📣 체험한 샘플을 최대 80% 저렴하게 구매하는 방법</SampleText>
-            <TicketText>온라인 할인쿠폰을 보내드립니다</TicketText>
-            <InputData />
-            <SubmitButton>할인쿠폰 받기</SubmitButton>
-            <InfoText onClick={() => history.push('/information')}>휴대폰 번호 및 개인정보 수집, 이용에 동의합니다.</InfoText>
-          </Footer>
-      </Main>
-    )
+  return (
+    <Main>
+      <Progressbar state={4} />
+      <Header>감사합니다</Header>
+      <Text>
+        목적지 도착 후 안전한 하차 상황에서
+        <br />
+        기사님께 말씀드리면, 샘플을 건네주실 거에요
+      </Text>
+      <Card image={image} />
+      <Footer>
+        <SampleText>
+          📣 체험한 샘플을 최대 80% 저렴하게 구매하는 방법
+        </SampleText>
+        <TicketText>온라인 할인쿠폰을 보내드립니다</TicketText>
+        <InputData />
+        <SubmitButton>할인쿠폰 받기</SubmitButton>
+        <InfoText onClick={() => history.push("/information")}>
+          휴대폰 번호 및 개인정보 수집, 이용에 동의합니다.
+        </InfoText>
+      </Footer>
+    </Main>
+  );
 }
 
 export default ThanksPage;

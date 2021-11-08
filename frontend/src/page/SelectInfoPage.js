@@ -10,6 +10,8 @@ const { Button, Footer, Header, Text } = style;
 
 const Main = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Info1 = styled.div`
@@ -60,28 +62,30 @@ function SelectInfoPage() {
       <Info3>
         <TextGender>성별</TextGender>
       </Info3>
-      <button
-        className="genderM"
-        onClick={() => setGender(true)}
-        style={
-          gender === true
-            ? { backgroundColor: "#c4442a", color: "#fff" }
-            : { backgroundColor: "#fff" }
-        }
-      >
-        남성
-      </button>
-      <button
-        className="genderW"
-        onClick={() => setGender(false)}
-        style={
-          gender === false
-            ? { backgroundColor: "#c4442a", color: "#fff" }
-            : { backgroundColor: "#fff" }
-        }
-      >
-        여성
-      </button>
+      <div>
+        <button
+          className="genderM"
+          onClick={() => setGender(true)}
+          style={
+            gender === true
+              ? { backgroundColor: "#c4442a", color: "#fff" }
+              : { backgroundColor: "#fff" }
+          }
+        >
+          남성
+        </button>
+        <button
+          className="genderW"
+          onClick={() => setGender(false)}
+          style={
+            gender === false
+              ? { backgroundColor: "#c4442a", color: "#fff" }
+              : { backgroundColor: "#fff" }
+          }
+        >
+          여성
+        </button>
+      </div>
 
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
