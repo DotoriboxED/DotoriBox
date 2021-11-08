@@ -12,10 +12,12 @@ const Logo = styled(LogoImg)`
 `;
 
 const NavBar = styled.div`
+  position: relative;
   width: 100%;
   height: 80px;
   display: flex;
   vertical-align: center;
+  z-index: 1001;
 `;
 
 const MenuIcon = styled(FaIcons.FaBars)`
@@ -30,7 +32,8 @@ const CloseIcon = styled(FaIcons.FaTimes)`
 
 const NavMenu = styled.nav`
   position: fixed;
-  top: 80px;
+  top: 0;
+  padding: 80px 0 0 0;
   width: 100%;
   background: white;
   border-bottom: 1.8px solid #afabab;
@@ -62,7 +65,7 @@ function Navbar() {
   return (
     <>
       <NavBar>
-        <Logo fill={location.pathname === '/' ? '#FFF' : "#c4442a"}/>
+        <Logo fill={location.pathname === '/' && !sidebar? '#FFF' : "#c4442a"}/>
         {
           sidebar ? <CloseIcon onClick={showSidebar}/> : <MenuIcon onClick={showSidebar} />
         }

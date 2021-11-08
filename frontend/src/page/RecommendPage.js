@@ -40,7 +40,7 @@ function RecommendPage (){
         <Main>
           <Header>추천 샘플</Header>
           <Text>
-            승객분들의 성별, 연령대, 시간에 맞는 샘플을 추천드려요<br/>
+            승객분들의 성별, 연령대, 시간에 맞는<br/> 샘플을 추천드려요<br/>
             원하시는 샘플을 클릭해주세요
           </Text>
           <Container>
