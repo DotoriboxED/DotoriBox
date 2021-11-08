@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Style from "../components/PageResource";
 import Progressbar from "../components/Progressbar";
+import MiniCard from "../components/MiniCard";
 
 const { Header, Button } = Style;
 
@@ -9,6 +10,12 @@ const Main = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+`;
+
+const MiniHeader = styled(Header)`
+  font-size: 1rem;
+  padding-bottom: 0;
+  margin-bottom: -0.4rem;
 `;
 
 const InfoTable = styled.table`
@@ -52,12 +59,20 @@ const SubmitButton = styled(Button)`
   margin-top: 1.188rem;
 `;
 
+const Line = styled.hr`
+  width: 100%;
+  border: solid 1px #e4e4e4;
+  margin-top: 2%;
+  margin-bottom: 7.9%;
+`;
+
 function ExperiencePage() {
   return (
     <Main>
       <Progressbar state={3} />
-      <Header>체험하기</Header>
-      <hr/>
+      <MiniHeader>CJ 헬스케어</MiniHeader>
+      <Header>컨디션 환 1포 체험하기</Header>
+      <Line/>
       <InfoTable>
         <tbody>
         <InfoTableRow>
