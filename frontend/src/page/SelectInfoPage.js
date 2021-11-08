@@ -78,7 +78,7 @@ function SelectInfoPage() {
 
   useEffect(() => {}, [gender]);
 
-  const [selected, setSelected] = useState("10대");
+  const [selected, setSelected] = useState(10);
   const history = useHistory();
 
   return (
