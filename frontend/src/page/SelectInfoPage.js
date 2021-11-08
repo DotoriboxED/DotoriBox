@@ -39,12 +39,39 @@ const FooterSubmit = styled(Footer)`
   margin-top: auto;
 `;
 
+const ButtonContainer = styled.div`
+    width: 100%;
+`;
+
+const ButtonM = styled.button`
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 0.5px #eaeaea;
+    background-color: #fff;
+    color: #6a707e;
+    font-weight: bold;
+    display: 'flex' ;
+    justifyContent: 'space-between';
+`;
+const ButtonW = styled.button`
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 0.5px #eaeaea;
+    background-color: #fff;
+    color: #6a707e;
+    font-weight: bold;
+    display: 'flex' ;
+    justifyContent: 'space-between';
+    `;
+
 function SelectInfoPage() {
   const [gender, setGender] = useState(undefined);
 
   useEffect(() => {}, [gender]);
 
-  const [selected, setSelected] = useState("연령대");
+  const [selected, setSelected] = useState("10대");
   const history = useHistory();
 
   return (
@@ -62,30 +89,28 @@ function SelectInfoPage() {
       <Info3>
         <TextGender>성별</TextGender>
       </Info3>
-      <div>
-        <button
-          className="genderM"
+      <ButtonContainer>
+        <ButtonM
           onClick={() => setGender(true)}
           style={
             gender === true
               ? { backgroundColor: "#c4442a", color: "#fff" }
-              : { backgroundColor: "#fff" }
+              : { backgroundColor: "#fff" } 
           }
         >
           남성
-        </button>
-        <button
-          className="genderW"
+        </ButtonM>
+        <ButtonW
           onClick={() => setGender(false)}
           style={
             gender === false
               ? { backgroundColor: "#c4442a", color: "#fff" }
               : { backgroundColor: "#fff" }
-          }
+        }
         >
           여성
-        </button>
-      </div>
+        </ButtonW>
+      </ButtonContainer>
 
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
