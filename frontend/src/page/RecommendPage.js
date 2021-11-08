@@ -2,6 +2,8 @@ import React from "react";
 import style from '../components/PageResource';
 import Card from "../components/Card";
 import styled from "styled-components";
+import MiniCard from "../components/MiniCard";
+
 import image from '../img/TestSampleImg.png'
 
 const { Header, Text } = style;
@@ -21,11 +23,15 @@ const Container = styled.div`
 `;
 
 const SampleCard = styled(Card)`
-  margin: 10% -20px 10% -20px;
+  margin: 10% -33px 10% -33px;
 `;
 
 const FirstCard = styled(Card)`
-  margin: 10% -20px 10% 25px;
+  margin: 10% -33px 10% 25px;
+`;
+
+const MiniCards = styled.div`
+  margin-top: 3vh;
 `;
 
 
@@ -43,6 +49,12 @@ function RecommendPage (){
             <SampleCard image={image} />
             <SampleCard image={image} />
           </Container>
+          <Header>모든 샘플</Header>
+          <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
+          <MiniCards>
+            <MiniCard />
+            <MiniCard />
+          </MiniCards>
         </Main>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
@@ -55,19 +56,19 @@ const ListContentText = styled.a`
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-
+  const location = useLocation();
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
     <>
       <NavBar>
-        <Logo fill="#c4442a"/>
+        <Logo fill={location.pathname === '/' ? '#FFF' : "#c4442a"}/>
         {
           sidebar ? <CloseIcon onClick={showSidebar}/> : <MenuIcon onClick={showSidebar} />
         }
       </NavBar>
       {
-        sidebar && 
+        sidebar &&
           <NavMenu>
             <List>
               {SidebarData.map((item, index) => {
