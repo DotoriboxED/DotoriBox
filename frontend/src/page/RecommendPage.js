@@ -3,6 +3,7 @@ import style from '../components/PageResource';
 import Card from "../components/Card";
 import styled from "styled-components";
 import MiniCard from "../components/MiniCard";
+import Progress from "../components/Progressbar";
 
 import image from '../img/TestSampleImg.png'
 
@@ -38,6 +39,7 @@ const MiniCards = styled.div`
 function RecommendPage (){
     return(
         <Main>
+          <Progress state={2} />
           <Header>추천 샘플</Header>
           <Text>
             승객분들의 성별, 연령대, 시간에 맞는<br/> 샘플을 추천드려요<br/>

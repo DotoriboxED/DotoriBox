@@ -4,6 +4,7 @@ import style from '../components/PageResource';
 import image from '../img/TestSampleImg.png'
 import Card from "../components/Card";
 import { useHistory } from "react-router-dom";
+import Progressbar from "../components/Progressbar";
 
 const { Text, InputData, Footer, Button } = style;
 
@@ -63,6 +64,7 @@ function ThanksPage(){
 
     return (
       <Main>
+        <Progressbar state={4}/>
         <Header>감사합니다</Header>
         <Text>목적지 도착 후 안전한 하차 상황에서<br/>기사님께 말씀드리면, 샘플을 건네주실 거에요</Text>
         <Card image={image} />

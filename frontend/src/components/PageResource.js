@@ -20,12 +20,9 @@ const Button = styled.button`
 `;
 
 const Text = styled.p`
-  font-family: SpoqaHanSansNeo;
-  font-size: 0.813rem;
-  line-height: 1.32;
   color: #6a707e;
-  font-weight: normal;
   letter-spacing: -0.13px;
+  font-size: 0.813rem;
 `;
 
 const Input = styled.input`

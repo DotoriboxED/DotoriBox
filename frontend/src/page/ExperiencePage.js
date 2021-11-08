@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Style from "../components/PageResource";
+import Progressbar from "../components/Progressbar";
 
 const { Header, Button } = Style;
 
@@ -54,6 +55,7 @@ const SubmitButton = styled(Button)`
 function ExperiencePage() {
   return (
     <Main>
+      <Progressbar state={3} />
       <Header>체험하기</Header>
       <hr/>
       <InfoTable>
