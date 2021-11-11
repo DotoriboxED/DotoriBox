@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,useLocation } from "react-router-dom";
 import Progressbar from "../components/Progressbar";
 import "../components/SelectInfoPage.css";
 import Dropdown from "../components/Dropdown.js";
@@ -53,9 +53,15 @@ function SelectInfoPage() {
 
   useEffect(() => {}, [gender]);
 
-  const [selected, setSelected] = useState(10);
+  const [selected, setSelected] = useState("선택");
   const history = useHistory();
 
+  const location = useLocation();
+  const code = location.state.code;
+
+  const onSubmit = () => {
+    history.push({pathname : '/recommend' , state : {gender, code, selected} })
+  }
   return (
     <Main>
       <Progressbar state={1} />
@@ -92,7 +98,7 @@ function SelectInfoPage() {
       </Info3>
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
-        <Button onClick={() => history.push('recommend')}>확인</Button>
+        <Button onClick={() => onSubmit()}>확인</Button>
       </Footer>
     </Main>
   );
