@@ -16,6 +16,10 @@ const Header = styled.h2`
   margin-bottom: 1rem;
 `;
 
+const Input = styled(InputData)`
+  margin-top: 20px;
+`;
+
 const Main = styled.div`
   height: 100%;
   display: flex;
@@ -56,7 +60,8 @@ const InfoText = styled.div`
 `;
 
 const SubmitButton = styled(Button)`
-  margin-top: 2rem;
+  margin-top: 1rem;
+  
 `;
 
 function ThanksPage() {
@@ -77,9 +82,9 @@ function ThanksPage() {
           📣 체험한 샘플을 최대 80% 저렴하게 구매하는 방법
         </SampleText>
         <TicketText>온라인 할인쿠폰을 보내드립니다</TicketText>
-        <InputData />
+        <Input placeholder='전화번호를 입력 해 주세요.' />
         <SubmitButton>할인쿠폰 받기</SubmitButton>
-        <InfoText onClick={() => history.push("/information")}>
+        <InfoText onClick={() => history.push("/information")} >
           휴대폰 번호 및 개인정보 수집, 이용에 동의합니다.
         </InfoText>
       </Footer>

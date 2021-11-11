@@ -31,6 +31,21 @@ const Input = styled.input`
   border : 0;
   width: 100%;
   height: 2rem;
+  font-family: SpoqaHanSansNeo;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  color: ${props => props.white ? '#FFFFFF' : '#000000'};
+  ::placeholder {
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: -0.12px;
+    color: #afabab;
+  }
 `;
 
 const Horizon = styled.hr`
@@ -45,12 +60,12 @@ const Footer = styled.div`
   flex-direction: column;
 `;
 
-const InputData = () => {
+const InputData = ({ white, placeholder, className}) => {
   return (
-    <>
-      <Input type="text"/>
+    <div className={className}>
+      <Input white={white} placeholder={placeholder} type="text"/>
       <Horizon />
-    </>
+    </div>
   )
 }
 

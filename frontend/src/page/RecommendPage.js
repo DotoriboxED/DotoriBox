@@ -19,16 +19,16 @@ const Container = styled.div`
   overflow: scroll;
   width: calc(100% + 50px);
   z-index: 1;
-  margin: 0 -25px 0 -25px;
+  margin: 10% -25px 10% -25px;
 ;
 `;
 
 const SampleCard = styled(Card)`
-  margin: 10% -33px 10% -33px;
+  margin: 0 -33px 0 -33px;
 `;
 
 const FirstCard = styled(Card)`
-  margin: 10% -33px 10% 25px;
+  margin: 0 -33px 0 25px;
 `;
 
 const MiniCards = styled.div`

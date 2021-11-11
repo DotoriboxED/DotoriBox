@@ -7,7 +7,7 @@ const Container = styled.div`
   background-color: #f1f2f4;
   border-radius: 3px;
   display: flex;
-  margin: 0.5rem 0 1.75rem 0;
+  margin: 1rem 0 2rem 0;
 `;
 
 const Progress = styled.div`
