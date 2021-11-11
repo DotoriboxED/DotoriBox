@@ -31,7 +31,9 @@ const TextGender = styled.div`
 `;
 
 const GenderButton = styled.button`
-  width: 9.375rem;
+  width: 48vw;
+  margin-left: ${props => props.isLeft? 0 : '10px'};
+  margin-right: ${props => props.isLeft? '10px' : 0};
   height: 50px;
   border-radius: 5px;
   border: solid 0.5px #eaeaea;
@@ -45,33 +47,6 @@ const BtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
-const ButtonContainer = styled.div`
-    width: 100%;
-`;
-
-const ButtonM = styled.button`
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    border: solid 0.5px #eaeaea;
-    background-color: #fff;
-    color: #6a707e;
-    font-weight: bold;
-    display: 'flex' ;
-    justifyContent: 'space-between';
-`;
-const ButtonW = styled.button`
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    border: solid 0.5px #eaeaea;
-    background-color: #fff;
-    color: #6a707e;
-    font-weight: bold;
-    display: 'flex' ;
-    justifyContent: 'space-between';
-    `;
 
 function SelectInfoPage() {
   const [gender, setGender] = useState(undefined);
@@ -100,6 +75,7 @@ function SelectInfoPage() {
         <GenderButton
           onClick={() => setGender(true)}
           selected={gender === true}
+          isLeft={true}
         >
           남성
         </GenderButton>
@@ -111,6 +87,9 @@ function SelectInfoPage() {
         </GenderButton>
       </BtnContainer>
 
+      <Info3>
+        <TextGender>나이</TextGender>
+      </Info3>
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
         <Button onClick={() => history.push('recommend')}>확인</Button>
