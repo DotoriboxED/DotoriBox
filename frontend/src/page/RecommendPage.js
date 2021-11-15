@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from '../components/PageResource';
 import Card from "../components/Card";
 import styled from "styled-components";
+import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
-import image from '../img/TestSampleImg.png';
-import { useHistory,useLocation } from "react-router-dom";
+import image from '../img/TestSampleImg.png'
+import {TaxiAPI} from '../API';
+import { useLocation } from "react-router-dom";
 
 const { Header, Text } = style;
 
@@ -37,9 +39,20 @@ const MiniCards = styled.div`
 
 
 function RecommendPage (){
-
+  const [samples, setSamples] = useState([]);
   const location = useLocation();
-  const inputData = location.state;
+
+  const { age, isMale } = location.state;
+
+  useEffect(() => {
+    TaxiAPI.findTaxiSample(1, { age, isMale }).then(res => {
+      setSamples(res.data);
+    });
+  },[]);
+
+  useEffect(() => {
+    console.log(samples);
+  }, [samples])
 
     return(
         <Main>
@@ -50,13 +63,32 @@ function RecommendPage (){
             원하시는 샘플을 클릭해주세요
           </Text>
           <Container>
-            <FirstCard image={image} />
-            <SampleCard image={image} />
-            <SampleCard image={image} />
-            <SampleCard image={image} />
+            {
+              samples.length !== 0 && <FirstCard
+                image={samples[0].sample.image}
+                manufacture={samples[0].sample.sampleInfo.manufacture}
+                name={samples[0].sample.sampleInfo.name}
+                target={
+                  `
+                  ${!samples[0].sample.sampleTarget.age ? '전연령' : samples[0].sample.sampleTarget.age}대
+                    ${samples[0].sample.sampleTarget.isMale === null &&
+                    samples[0].sample.sampleTarget.isMale? '남성': '여성'
+                  }
+                  `
+                }
+              />
+            }
+            {/*<FirstCard image={image} />*/}
+            {/*<SampleCard image={image} />*/}
+            {/*<SampleCard image={image} />*/}
+            {/*<SampleCard image={image} />*/}
           </Container>
           <Header>모든 샘플</Header>
           <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
+          {/* <MiniCards>
+            <MiniCard />
+            <MiniCard />
+          </MiniCards> */}
           <PlaceHolder></PlaceHolder>
         </Main>
     )

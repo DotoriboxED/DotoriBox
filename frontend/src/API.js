@@ -6,7 +6,7 @@ const API = axios.create({
 
 export const TaxiAPI = {
   findOne: async (taxiNumber) => await API.get(`/taxi/${taxiNumber}`),
-  findTaxiSample: async (taxiId, options) => await API.get(`/taxi/${taxiId}/sample`,{} ,{ ...options }),
+  findTaxiSample: async (taxiId, options) => await API.get(`/taxi/${taxiId}/sample`, { params: options }),
 }
 
 export const SampleAPI = {
