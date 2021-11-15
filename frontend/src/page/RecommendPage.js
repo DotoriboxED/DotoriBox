@@ -1,20 +1,17 @@
-import React from "react";
-import {useEffect, useState} from "react";
-import style from '../components/PageResource';
+import React, { useEffect, useState } from "react";
+import style from "../components/PageResource";
 import Card from "../components/Card";
 import styled from "styled-components";
 import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
-import image from '../img/TestSampleImg.png';
-import { useHistory,useLocation } from "react-router-dom";
-import { TaxiAPI,CustomerAPI } from "../API";
+import image from "../img/TestSampleImg.png";
+import { TaxiAPI, CustomerAPI } from "../API";
+import { useHistory, useLocation } from "react-router-dom";
 
 const { Header, Text } = style;
 
-const Main = styled.div`
-  
-`;
+const Main = styled.div``;
 
 const Container = styled.div`
   position: relative;
@@ -22,8 +19,7 @@ const Container = styled.div`
   overflow: scroll;
   width: calc(100% + 50px);
   z-index: 1;
-  margin: 10% -25px 10% -25px;
-;
+  margin: 10% -25px 10% -25px; ;
 `;
 
 const SampleCard = styled(Card)`
@@ -38,73 +34,113 @@ const MiniCards = styled.div`
   margin-top: 3vh;
 `;
 
-
-function RecommendPage (){
+function RecommendPage() {
   const [samples, setSamples] = useState([]);
   const location = useLocation();
-  const [sampleId, setSampleId] = useState();
 
   const { age, isMale, taxiId } = location.state;
 
-
   useEffect(() => {
-    TaxiAPI.findTaxiSample(1, { age, isMale }).then(res => {
+    TaxiAPI.findTaxiSample(1, { age, isMale }).then((res) => {
       setSamples(res.data);
     });
-  },[]);
-
+  }, []);
 
   useEffect(() => {
     console.log(samples);
-  }, [samples])
+  }, [samples]);
 
   const history = useHistory();
 
-  const onClick = (sampleId)=>{
-    setSampleId(sampleId);
-    CustomerAPI.createCustomer({isMale, age, taxiId, sampleId}, {taxiId, sampleId}).then(
-      res=>history.push({path: "/Experience" , state: {sampleId, taxiId, customerId : res.data.id}}));
-  }
+  const onClick = (sampleId) => {
 
-    return(
-        <Main>
-          <Progress state={2} />
-          <Header>추천 샘플</Header>
-          <Text>
-            승객분들의 성별, 연령대, 시간에 맞는<br/> 샘플을 추천드려요<br/>
-            원하시는 샘플을 클릭해주세요
-          </Text>
-          <Container>
-            {
-              samples.length !== 0 && <FirstCard onClick={() => onClick(samples[0].id)}
+    console.log({ isMale, age, taxiId, sampleId });
+    console.log({ taxiId, sampleId })
+
+    CustomerAPI.createCustomer(
+      { isMale, age, taxiId, sampleId },
+      { taxiId, sampleId }
+    ).then((res) => {
+      history.push({
+        path: "/Experience",
+        state: { sampleId, taxiId, customerId: res.data.id },
+      });
+    });
+  };
+
+  return (
+    <Main>
+      <Progress state={2} />
+      <Header>추천 샘플</Header>
+      <Text>
+        승객분들의 성별, 연령대, 시간에 맞는
+        <br /> 샘플을 추천드려요
+        <br />
+        원하시는 샘플을 클릭해주세요
+      </Text>
+      <Container>
+        {
+          <>
+            {samples.length !== 0 && samples.length !== 0 && (
+              <FirstCard
+                onClick={() => onClick(samples[0].id)}
                 sampleId={samples[0].id}
                 image={samples[0].sample.image}
                 manufacture={samples[0].sample.sampleInfo.manufacture}
                 name={samples[0].sample.sampleInfo.name}
-                target={
-                  `
-                  ${!samples[0].sample.sampleTarget.age ? '전연령' : samples[0].sample.sampleTarget.age}대
-                    ${samples[0].sample.sampleTarget.isMale === null &&
-                    samples[0].sample.sampleTarget.isMale? '남성': '여성'
-                  }
-                  `
-                }
+                target={`
+                        ${
+                          !samples[0].sample.sampleTarget.age
+                            ? "전연령"
+                            : samples[0].sample.sampleTarget.age
+                        }대
+                    ${
+                      samples[0].sample.sampleTarget.isMale === null &&
+                      samples[0].sample.sampleTarget.isMale
+                        ? "남성"
+                        : "여성"
+                    }
+                  `}
               />
-            }
-            {/*<FirstCard image={image} />*/}
-            {/*<SampleCard image={image} />*/}
-            {/*<SampleCard image={image} />*/}
-            {/*<SampleCard image={image} />*/}
-          </Container>
-          <Header>모든 샘플</Header>
-          <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
-          {/* <MiniCards>
+            )}
+            {samples.slice(1, samples.length).map((elem) => {
+              return (
+                <Card
+                  image={elem.sample.image}
+                  manufacture={elem.sample.sampleInfo.manufacture}
+                  name={elem.sample.sampleInfo.name}
+                  target={`
+                          ${
+                            !elem.sample.sampleTarget.age
+                              ? "전연령"
+                              : samples[0].sample.sampleTarget.age
+                          }대
+                          ${
+                            elem.sample.sampleTarget.isMale === null &&
+                            elem.sample.sampleTarget.isMale
+                              ? "남성"
+                              : "여성"
+                          }
+                      `}
+                />
+              );
+            })}
+          </>
+        }
+        {/*<FirstCard image={image} />*/}
+        {/*<SampleCard image={image} />*/}
+        {/*<SampleCard image={image} />*/}
+        {/*<SampleCard image={image} />*/}
+      </Container>
+      <Header>모든 샘플</Header>
+      <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
+      {/* <MiniCards>
             <MiniCard />
             <MiniCard />
           </MiniCards> */}
-          <PlaceHolder></PlaceHolder>
-        </Main>
-    )
+      <PlaceHolder></PlaceHolder>
+    </Main>
+  );
 }
 
 export default RecommendPage;

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Style from "../components/PageResource";
 import Progressbar from "../components/Progressbar";
 import MiniCard from "../components/MiniCard";
+import { useHistory, useLocation } from "react-router-dom";
+import { SampleAPI } from '../API';
 
 const { Header, Button } = Style;
 
@@ -67,39 +69,58 @@ const Line = styled.hr`
 `;
 
 function ExperiencePage() {
+  const location = useLocation();
+  const history = useHistory();
+  // const { sampleId } = location.state;
+  const [sample, setSample] = useState({ sampleInfo: {} });
+
+  useEffect(() => {
+    SampleAPI.getSample(1).then(res => {
+      setSample(res.data);
+    });
+  }, []);
+
+  const onClickBtn = () => {
+    history.push('/thanks');
+  }
+
   return (
     <Main>
       <Progressbar state={3} />
-      <MiniHeader>CJ 헬스케어</MiniHeader>
-      <Header>컨디션 환 1포 체험하기</Header>
-      <Line/>
-      <InfoTable>
-        <tbody>
-        <InfoTableRow>
-          <InfoTitle>제품명</InfoTitle>
-          <InfoContent>컨디션 환</InfoContent>
-        </InfoTableRow>
-        <InfoTableRow>
-          <InfoTitle>식품의 유형</InfoTitle>
-          <InfoContent>기타가공품</InfoContent>
-        </InfoTableRow>
-        <InfoTableRow>
-          <InfoTitle>섭취 방법</InfoTitle>
-          <InfoContent>음주 전 컨디션과 함께 드시고<br/>음주 후 하나 더 드시면 좋습니다</InfoContent>
-        </InfoTableRow>
-        <InfoTableRow>
-          <InfoTitle>주성분 및 함량</InfoTitle>
-          <InfoContent>헛개나무열매복합농축액, 새싹보리분말(새싹보리:국산) 등</InfoContent>
-        </InfoTableRow>
-        </tbody>
-      </InfoTable>
+      {
+        sample.sampleInfo && <>
+          <MiniHeader>{sample.sampleInfo.manufacture}</MiniHeader>
+          <Header>{sample.sampleInfo.name} 체험하기</Header>
+          <Line/>
+          <InfoTable>
+            <tbody>
+            <InfoTableRow>
+              <InfoTitle>제품명</InfoTitle>
+              <InfoContent>{sample.sampleInfo.name}</InfoContent>
+            </InfoTableRow>
+            <InfoTableRow>
+              <InfoTitle>식품의 유형</InfoTitle>
+              <InfoContent>{sample.sampleInfo.sampleType}</InfoContent>
+            </InfoTableRow>
+            <InfoTableRow>
+              <InfoTitle>섭취 방법</InfoTitle>
+              <InfoContent>{sample.sampleInfo.method}</InfoContent>
+            </InfoTableRow>
+            <InfoTableRow>
+              <InfoTitle>주성분 및 함량</InfoTitle>
+              <InfoContent>{sample.sampleInfo.nutrient}</InfoContent>
+            </InfoTableRow>
+            </tbody>
+          </InfoTable>
+        </>
+      }
       <Footer>
         <Notice>
           📢 마지막으로,<br/>
           탑승하신 택시에 해당 샘플이 있는지 확인해주세요
         </Notice>
 
-        <SubmitButton>확인 후 가져가기</SubmitButton>
+        <SubmitButton onClick={() => onClickBtn()}>확인 후 가져가기</SubmitButton>
       </Footer>
     </Main>
   );

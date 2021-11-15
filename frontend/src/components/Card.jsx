@@ -41,9 +41,9 @@ const ItemFor = styled.div`
   padding: 2px;
 `
 
-const Card = ({ image, manufacture, name, target, className }) => {
+const Card = ({ image, manufacture, name, target, onClick, className }) => {
   return (
-    <div className={className}>
+    <div className={className} onClick={onClick}>
       <SampleImage>
         <Gradient>
           <Manufactured>

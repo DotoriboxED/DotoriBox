@@ -70,10 +70,9 @@ function MainPage() {
   }
 
   const onStart = () => {
-    if(check){
+    if(check) {
       history.push({ pathname: '/selectInfo', state: { code, taxiId} });
     }
-      
   }
 
   return (

@@ -103,7 +103,7 @@ function SelectInfoPage() {
       </Info3>
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
-        <SubmitButton onClick={() => onSubmit()} BColor={ (gender!=undefined) && (selected != undefined) ? "#c4442a":"#707070"}>확인</SubmitButton>
+        <SubmitButton onClick={() => onSubmit()} BColor={ (gender!==undefined) && (selected !== undefined) ? "#c4442a":"#707070"}>확인</SubmitButton>
       </Footer>
     </Main>
   );
