@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import style from "../components/PageResource";
+import api, { TaxiAPI } from "../API";
+import FcCheckmark from "react-icons/fc";
+
 
 const { Footer, InputData, Button } = style;
 
@@ -49,9 +52,16 @@ const ButtonStart = styled(Button)`
 function MainPage() {
   const history = useHistory();
   const [code, setCode] = useState();
+  const [check, setCheck] = useState(undefined);
 
   const onTextChange = (e) => {
     setCode(e.target.value);
+    console.log(e.target.value);
+    if (e.target.value.length === 5) {
+      TaxiAPI.findOne(parseInt(e.target.value)).then(result => {
+        setCheck(true)
+      }).catch(err => setCheck(false));
+    }
   }
 
   const onStart = () => {
@@ -79,7 +89,7 @@ function MainPage() {
           </Text2_1>
           <Text2_2>운전석과 조수석 사이 설치된 도토리박스에 적혀있어요</Text2_2>
         </Info2>
-        <InputData white={true} onChange={onTextChange}/>
+        <InputData white={true} onChange={onTextChange} checkIcon={check}/>
         <ButtonStart onClick={() => onStart()}>시작하기</ButtonStart>
       </Footer>
     </Main>

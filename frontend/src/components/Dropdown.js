@@ -21,16 +21,16 @@ function Dropdown({selected, setSelected}){
 
 
     return(
-    <div className="dropdown">
+    <div className="dropdown"> 
         <div className="dropdown-btn" onClick={(e)=>
         setIsActive(!isActive)}>
-            {`${selected}대`}{isActive?<TriangleUpIcon/>:<TriangleDownIcon/>} 
+            {`${selected}`}{isActive?<TriangleUpIcon/>:<TriangleDownIcon/>} 
         </div>
         {isActive && (
         <div className="dropdown-content">
             {Object.keys(options).map((key,index)=>(
                 <div onClick={(e)=>{
-                    setSelected(options[key]);
+                    setSelected(key);
                     setIsActive(false);
                 }}
                 className="dropdown-item">

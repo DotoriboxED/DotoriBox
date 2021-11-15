@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import styled from "styled-components";
 import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
-
+import PlaceHolder from "../components/PlaceHolder";
 import image from '../img/TestSampleImg.png'
 
 const { Header, Text } = style;
@@ -53,10 +53,11 @@ function RecommendPage (){
           </Container>
           <Header>모든 샘플</Header>
           <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
-          <MiniCards>
+          {/* <MiniCards>
             <MiniCard />
             <MiniCard />
-          </MiniCards>
+          </MiniCards> */}
+          <PlaceHolder></PlaceHolder>
         </Main>
     )
 }

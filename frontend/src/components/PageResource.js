@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import {IoBanSharp} from "react-icons/io5";
+import {FcCheckmark} from "react-icons/fc";
+
+
 
 const Header = styled.h2`
   padding-bottom: 10px;
@@ -60,10 +64,26 @@ const Footer = styled.div`
   flex-direction: column;
 `;
 
-const InputData = ({ white, placeholder, className}) => {
+const InputContainer = styled.div`
+  display : flex;
+`;
+
+const Checkmark = styled(FcCheckmark)`
+  margin: auto 0px auto auto; 
+`;
+
+const BanSharp = styled(IoBanSharp)`
+  margin: auto 0px auto auto;
+  color: red;
+`;
+
+const InputData = ({ white, placeholder, onChange, className, checkIcon}) => {
   return (
     <div className={className}>
-      <Input white={white} placeholder={placeholder} type="text"/>
+      <InputContainer>
+        <Input white={white} placeholder={placeholder} onChange={onChange} type="text"/>
+        {typeof checkIcon ==='undefined' ? <></> : (checkIcon ? <Checkmark/>:<BanSharp/>)}
+      </InputContainer>
       <Horizon />
     </div>
   )
