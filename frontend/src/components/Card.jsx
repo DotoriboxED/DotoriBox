@@ -41,16 +41,16 @@ const ItemFor = styled.div`
   padding: 2px;
 `
 
-const Card = ({ image, className }) => {
+const Card = ({ image, manufacture, name, target, className }) => {
   return (
     <div className={className}>
       <SampleImage>
         <Gradient>
           <Manufactured>
-            <h4>CJ 헬스케어</h4>
-            <h2>컨디션 환 1포</h2>
+            <h4>{manufacture}</h4>
+            <h2>{name}</h2>
           </Manufactured>
-          <ItemFor>30대 남성 추천</ItemFor>
+          <ItemFor>{target} 추천</ItemFor>
         </Gradient>
         <Image src={image} />
       </SampleImage>

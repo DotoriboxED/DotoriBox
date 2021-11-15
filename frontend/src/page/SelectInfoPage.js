@@ -53,14 +53,14 @@ function SelectInfoPage() {
 
   useEffect(() => {}, [gender]);
 
-  const [selected, setSelected] = useState("선택");
+  const [selected, setSelected] = useState(undefined);
   const history = useHistory();
 
   const location = useLocation();
   const code = location.state.code;
 
   const onSubmit = () => {
-    history.push({pathname : '/recommend' , state : {gender, code, selected} })
+    history.push({pathname : '/recommend' , state : { isMale: gender, code, age: selected }})
   }
   return (
     <Main>

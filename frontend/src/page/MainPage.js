@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import style from "../components/PageResource";
-import api, { TaxiAPI } from "../API";
-import FcCheckmark from "react-icons/fc";
+import { TaxiAPI } from "../API";
 
 
 const { Footer, InputData, Button } = style;
