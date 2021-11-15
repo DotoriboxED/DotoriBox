@@ -5,7 +5,7 @@ import style from "../components/PageResource";
 import { TaxiAPI } from "../API";
 
 
-const { Footer, InputData, Button } = style;
+const { Footer, InputData,  Button } = style;
 
 const Main = styled.div`
   height: 100%;
@@ -46,6 +46,7 @@ const Text2_2 = styled.div`
 `;
 const ButtonStart = styled(Button)`
   margin: 15% 0 0 0;
+  background-color : ${props => props.BColor};
 `;
 
 function MainPage() {
@@ -61,10 +62,16 @@ function MainPage() {
         setCheck(true)
       }).catch(err => setCheck(false));
     }
+    if(e.target.value.length===0){
+      setCheck(undefined);
+    }
   }
 
   const onStart = () => {
-    history.push({ pathname: '/selectInfo', state: { code } });
+    if(check){
+      history.push({ pathname: '/selectInfo', state: { code } });
+    }
+      
   }
 
   return (
@@ -89,7 +96,7 @@ function MainPage() {
           <Text2_2>운전석과 조수석 사이 설치된 도토리박스에 적혀있어요</Text2_2>
         </Info2>
         <InputData white={true} onChange={onTextChange} checkIcon={check}/>
-        <ButtonStart onClick={() => onStart()}>시작하기</ButtonStart>
+        <ButtonStart onClick={() => onStart()} BColor={check?"#c4442a":"#707070"}>시작하기</ButtonStart>
       </Footer>
     </Main>
   );

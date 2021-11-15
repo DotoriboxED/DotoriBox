@@ -48,6 +48,10 @@ const BtnContainer = styled.div`
   justify-content: space-between;
 `;
 
+const SubmitButton = styled(Button)`
+  background-color : ${props => props.BColor};
+`;
+
 function SelectInfoPage() {
   const [gender, setGender] = useState(undefined);
 
@@ -98,7 +102,7 @@ function SelectInfoPage() {
       </Info3>
       <Dropdown selected={selected} setSelected={setSelected} />
       <Footer>
-        <Button onClick={() => onSubmit()}>확인</Button>
+        <SubmitButton onClick={() => onSubmit()} BColor={ (gender!=undefined) && (selected != undefined) ? "#c4442a":"#707070"}>확인</SubmitButton>
       </Footer>
     </Main>
   );

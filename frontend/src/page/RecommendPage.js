@@ -2,10 +2,10 @@ import React from "react";
 import style from '../components/PageResource';
 import Card from "../components/Card";
 import styled from "styled-components";
-import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
-import image from '../img/TestSampleImg.png'
+import image from '../img/TestSampleImg.png';
+import { useHistory,useLocation } from "react-router-dom";
 
 const { Header, Text } = style;
 
@@ -37,6 +37,10 @@ const MiniCards = styled.div`
 
 
 function RecommendPage (){
+
+  const location = useLocation();
+  const inputData = location.state;
+
     return(
         <Main>
           <Progress state={2} />
@@ -53,10 +57,6 @@ function RecommendPage (){
           </Container>
           <Header>모든 샘플</Header>
           <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
-          {/* <MiniCards>
-            <MiniCard />
-            <MiniCard />
-          </MiniCards> */}
           <PlaceHolder></PlaceHolder>
         </Main>
     )
