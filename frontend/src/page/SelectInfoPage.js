@@ -62,9 +62,10 @@ function SelectInfoPage() {
 
   const location = useLocation();
   const code = location.state.code;
+  const taxiId = location.state.taxiId;
 
   const onSubmit = () => {
-    history.push({pathname : '/recommend' , state : { isMale: gender, code, age: selected }})
+    history.push({pathname : '/recommend' , state : { isMale: gender, code, age: selected, taxiId: taxiId }})
   }
   return (
     <Main>

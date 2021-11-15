@@ -53,13 +53,15 @@ function MainPage() {
   const history = useHistory();
   const [code, setCode] = useState();
   const [check, setCheck] = useState(undefined);
+  const [taxiId, setTaxiId] = useState();
 
   const onTextChange = (e) => {
     setCode(e.target.value);
     console.log(e.target.value);
     if (e.target.value.length === 5) {
       TaxiAPI.findOne(parseInt(e.target.value)).then(result => {
-        setCheck(true)
+        setCheck(true);
+        setTaxiId(result.data.id);
       }).catch(err => setCheck(false));
     }
     if(e.target.value.length===0){
@@ -69,7 +71,7 @@ function MainPage() {
 
   const onStart = () => {
     if(check){
-      history.push({ pathname: '/selectInfo', state: { code } });
+      history.push({ pathname: '/selectInfo', state: { code, taxiId} });
     }
       
   }

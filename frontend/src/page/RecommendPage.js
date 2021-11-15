@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import {useEffect, useState} from "react";
 import style from '../components/PageResource';
 import Card from "../components/Card";
 import styled from "styled-components";
 import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
-import image from '../img/TestSampleImg.png'
-import {TaxiAPI} from '../API';
-import { useLocation } from "react-router-dom";
+import image from '../img/TestSampleImg.png';
+import { useHistory,useLocation } from "react-router-dom";
+import { TaxiAPI,CustomerAPI } from "../API";
 
 const { Header, Text } = style;
 
@@ -41,8 +42,10 @@ const MiniCards = styled.div`
 function RecommendPage (){
   const [samples, setSamples] = useState([]);
   const location = useLocation();
+  const [sampleId, setSampleId] = useState();
 
-  const { age, isMale } = location.state;
+  const { age, isMale, taxiId } = location.state;
+
 
   useEffect(() => {
     TaxiAPI.findTaxiSample(1, { age, isMale }).then(res => {
@@ -50,9 +53,18 @@ function RecommendPage (){
     });
   },[]);
 
+
   useEffect(() => {
     console.log(samples);
   }, [samples])
+
+  const history = useHistory();
+
+  const onClick = (sampleId)=>{
+    setSampleId(sampleId);
+    CustomerAPI.createCustomer({isMale, age, taxiId, sampleId}, {taxiId, sampleId}).then(
+      res=>history.push({path: "/Experience" , state: {sampleId, taxiId, customerId : res.data.id}}));
+  }
 
     return(
         <Main>
@@ -64,7 +76,8 @@ function RecommendPage (){
           </Text>
           <Container>
             {
-              samples.length !== 0 && <FirstCard
+              samples.length !== 0 && <FirstCard onClick={() => onClick(samples[0].id)}
+                sampleId={samples[0].id}
                 image={samples[0].sample.image}
                 manufacture={samples[0].sample.sampleInfo.manufacture}
                 name={samples[0].sample.sampleInfo.name}
