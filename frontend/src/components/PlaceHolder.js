@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Container = styled.div`
     width: 100%;
     height: 6.625rem;
-    background-color: yellow;
     display: flex;
 `;
 
@@ -30,7 +29,7 @@ const Text_1 = styled.div`
     height: 0.625rem;
     background-color: #eee;
     border-radius: 2px;
-    margin : auto auto 2% 4%;
+    margin : 2% auto 5% 4%;
 `;
 
 const Text_2 = styled.div`
@@ -38,7 +37,7 @@ const Text_2 = styled.div`
     height: 0.625rem;
     background-color: #eee;
     border-radius: 2px;
-    margin : auto auto 4% 4%;
+    margin : 2% auto 5% 4%;
 `;
 
 const Text_3 = styled.div`
@@ -46,7 +45,7 @@ const Text_3 = styled.div`
     height: 0.813rem;
     background-color: #eee;
     border-radius: 2px;
-    margin : auto auto 2% 4%;
+    margin : auto auto 5% 4%;
 `;
 
 const Text_4 = styled.div`
@@ -54,11 +53,11 @@ const Text_4 = styled.div`
   height: 0.813rem;
   background-color: #eee;
   border-radius: 2px;
-  margin : auto auto 4% 4%;
+  margin : auto auto 5% 4%;
 `;
 
 const Texts = styled.div`
-    
+    margin : 5px 0 5px 0;
 `;
 
 function PlaceHolder(){
