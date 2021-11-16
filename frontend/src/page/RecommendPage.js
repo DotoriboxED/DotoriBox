@@ -52,17 +52,13 @@ function RecommendPage() {
 
   const history = useHistory();
 
-  const onClick = (sampleId) => {
-
-    console.log({ isMale, age, taxiId, sampleId });
-    console.log({ taxiId, sampleId })
-
+  const onClick = async (sampleId) => {
     CustomerAPI.createCustomer(
       { isMale, age, taxiId, sampleId },
       { taxiId, sampleId }
     ).then((res) => {
       history.push({
-        path: "/Experience",
+        pathname: "/Experience",
         state: { sampleId, taxiId, customerId: res.data.id },
       });
     });

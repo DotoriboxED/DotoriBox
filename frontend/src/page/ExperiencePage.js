@@ -71,7 +71,7 @@ const Line = styled.hr`
 function ExperiencePage() {
   const location = useLocation();
   const history = useHistory();
-  // const { sampleId } = location.state;
+  const { sampleId, taxiId, customerId } = location.state;
   const [sample, setSample] = useState({ sampleInfo: {} });
 
   useEffect(() => {
@@ -81,12 +81,12 @@ function ExperiencePage() {
   }, []);
 
   const onClickBtn = () => {
-    history.push('/thanks');
+    history.push({ pathname: '/thanks', state: { sampleId, taxiId, customerId } });
   }
 
   return (
     <Main>
-      <Progressbar state={3} />
+      <Progressbar state={sampleId} />
       {
         sample.sampleInfo && <>
           <MiniHeader>{sample.sampleInfo.manufacture}</MiniHeader>
