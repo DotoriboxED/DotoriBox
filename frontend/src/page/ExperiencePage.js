@@ -16,7 +16,7 @@ const Main = styled.div`
 
 const MiniHeader = styled(Header)`
   font-size: 1rem;
-  padding-bottom: 0;
+  padding-bottom: 0.625rem;
   margin-bottom: -0.4rem;
 `;
 
@@ -61,13 +61,6 @@ const SubmitButton = styled(Button)`
   margin-top: 1.188rem;
 `;
 
-const Line = styled.hr`
-  width: 100%;
-  border: solid 1px #e4e4e4;
-  margin-top: 2%;
-  margin-bottom: 7.9%;
-`;
-
 function ExperiencePage() {
   const location = useLocation();
   const history = useHistory();
@@ -75,7 +68,7 @@ function ExperiencePage() {
   const [sample, setSample] = useState({ sampleInfo: {} });
 
   useEffect(() => {
-    SampleAPI.getSample(1).then(res => {
+    SampleAPI.getSample(sampleId).then(res => {
       setSample(res.data);
     });
   }, []);
@@ -91,7 +84,6 @@ function ExperiencePage() {
         sample.sampleInfo && <>
           <MiniHeader>{sample.sampleInfo.manufacture}</MiniHeader>
           <Header>{sample.sampleInfo.name} 체험하기</Header>
-          <Line/>
           <InfoTable>
             <tbody>
             <InfoTableRow>
