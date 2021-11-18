@@ -19,7 +19,7 @@ const Container = styled.div`
   overflow: scroll;
   width: calc(100% + 50px);
   z-index: 1;
-  margin: 10% -25px 10% -25px; ;
+  margin: 0 -25px 0 -25px; ;
 `;
 
 const SampleCard = styled(Card)`
@@ -43,25 +43,24 @@ function RecommendPage() {
   useEffect(() => {
     TaxiAPI.findTaxiSample(1, { age, isMale }).then((res) => {
       setSamples(res.data);
+      console.log(res.data);
     });
   }, []);
 
-  useEffect(() => {
-    console.log(samples);
-  }, [samples]);
-
   const history = useHistory();
 
-  const onClick = async (sampleId) => {
-    CustomerAPI.createCustomer(
-      { isMale, age, taxiId, sampleId },
-      { taxiId, sampleId }
-    ).then((res) => {
-      history.push({
-        pathname: "/Experience",
-        state: { sampleId, taxiId, customerId: res.data.id },
+  const onClick = async (sampleId, stocks) => {
+    if (stocks > 0) {
+      CustomerAPI.createCustomer(
+        { isMale, age, taxiId, sampleId },
+        { taxiId, sampleId }
+      ).then((res) => {
+        history.push({
+          pathname: "/Experience",
+          state: { sampleId, taxiId, customerId: res.data.id },
+        });
       });
-    });
+    }
   };
 
   return (
@@ -79,7 +78,7 @@ function RecommendPage() {
           <>
             {samples.length !== 0 && samples.length !== 0 && (
               <FirstCard
-                onClick={() => onClick(samples[0].id)}
+                onClick={() => onClick(samples[0].id, samples[0].stock)}
                 sampleId={samples[0].id}
                 image={samples[0].sample.image}
                 manufacture={samples[0].sample.sampleInfo.manufacture}
@@ -91,17 +90,20 @@ function RecommendPage() {
                             : samples[0].sample.sampleTarget.age
                         }대
                     ${
-                      samples[0].sample.sampleTarget.isMale === null &&
+                      samples[0].sample.sampleTarget.isMale === null? '':
                       samples[0].sample.sampleTarget.isMale
                         ? "남성"
                         : "여성"
                     }
                   `}
+                stock={samples[0].stock}
               />
             )}
             {samples.slice(1, samples.length).map((elem) => {
               return (
-                <Card
+                <SampleCard
+                  onClick={() => onClick(elem.id, elem.stock)}
+                  sampleId={elem.id}
                   image={elem.sample.image}
                   manufacture={elem.sample.sampleInfo.manufacture}
                   name={elem.sample.sampleInfo.name}
@@ -109,7 +111,7 @@ function RecommendPage() {
                           ${
                             !elem.sample.sampleTarget.age
                               ? "전연령"
-                              : samples[0].sample.sampleTarget.age
+                              : elem.sample.sampleTarget.age
                           }대
                           ${
                             elem.sample.sampleTarget.isMale === null &&
@@ -118,6 +120,7 @@ function RecommendPage() {
                               : "여성"
                           }
                       `}
+                  stock={elem.stock}
                 />
               );
             })}
