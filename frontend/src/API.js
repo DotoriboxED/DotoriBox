@@ -17,3 +17,7 @@ export const SampleAPI = {
 export const CustomerAPI = {
   createCustomer: async (customerDto, stockDto) => await API.post(`/customer/`, { customerDto, stockDto })
 }
+
+export const StockAPI = {
+  getStockInfo: async (taxiId, sampleId) => await API.get(`/taxi/${taxiId}/sample/${sampleId}`)
+}

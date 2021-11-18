@@ -4,15 +4,18 @@ import styled from "styled-components";
 const SampleImage = styled.div`
   display: block;
   margin: 6% auto 10% 0;
-  width: 1vh;
+  width: 1vw;
+  height: 48vh;
   max-width: 500px;
   position: relative;
   min-width: 330px;
+  min-height: 360px;
 `;
 
 const Image = styled.img`
   width: 76.5%;
   height: 100%;
+  -webkit-filter: grayscale(${props => props.stock > 0 ? '0%' : '100%'});
 `;
 
 const Gradient = styled.div`
@@ -29,6 +32,7 @@ const Manufactured = styled.div`
   position: absolute;
   bottom: 1.313rem;
   left: 1rem;
+  text-decoration: ${props => props.stock > 0? 'none' : 'line-through'};
 `
 
 const ItemFor = styled.div`
@@ -41,18 +45,18 @@ const ItemFor = styled.div`
   padding: 2px;
 `
 
-const Card = ({ image, manufacture, name, target, onClick, className }) => {
+const Card = ({ image, manufacture, name, target, onClick, className, stock }) => {
   return (
     <div className={className} onClick={onClick}>
       <SampleImage>
         <Gradient>
-          <Manufactured>
+          <Manufactured stock={stock}>
             <h4>{manufacture}</h4>
             <h2>{name}</h2>
           </Manufactured>
           <ItemFor>{target} 추천</ItemFor>
         </Gradient>
-        <Image src={image} />
+        <Image src={image} stock={stock}/>
       </SampleImage>
     </div>
   )

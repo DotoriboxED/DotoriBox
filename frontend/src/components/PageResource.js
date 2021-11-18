@@ -69,11 +69,11 @@ const InputContainer = styled.div`
 `;
 
 const Checkmark = styled(FcCheckmark)`
-  margin: auto 0px auto auto; 
+  margin: auto 0 auto auto; 
 `;
 
 const BanSharp = styled(IoBanSharp)`
-  margin: auto 0px auto auto;
+  margin: auto 0 auto auto;
   color: red;
 `;
 
