@@ -41,9 +41,8 @@ function RecommendPage() {
   const { age, isMale, taxiId } = location.state;
 
   useEffect(() => {
-    TaxiAPI.findTaxiSample(1, { age, isMale }).then((res) => {
+    TaxiAPI.findTaxiSample(taxiId, { age, isMale }).then((res) => {
       setSamples(res.data);
-      console.log(res.data);
     });
   }, []);
 
