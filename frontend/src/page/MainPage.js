@@ -57,15 +57,16 @@ function MainPage() {
 
   const onTextChange = (e) => {
     setCode(e.target.value);
-    console.log(e.target.value);
-    if (e.target.value.length === 5 && e.target.value.length < 6) {
+
+    if (e.target.value.length === 5) {
       TaxiAPI.findOne(parseInt(e.target.value)).then(result => {
         setCheck(true);
         setTaxiId(result.data.id);
       }).catch(err => setCheck(false));
-    }
-    if(e.target.value.length===0 || e.target.value.length >= 6 ){
+    } else if (e.target.value.length===0){
       setCheck(undefined);
+    } else if (e.target.value.length > 5) {
+      setCheck(false)
     }
   }
 
