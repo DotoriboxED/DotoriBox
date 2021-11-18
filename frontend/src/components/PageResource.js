@@ -46,7 +46,7 @@ const Input = styled.input`
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.25;
+    line-height: 1.25rem;
     letter-spacing: -0.12px;
     color: #afabab;
   }
@@ -54,7 +54,7 @@ const Input = styled.input`
 
 const Horizon = styled.hr`
   width: 100%;
-  color: #afabab;
+  border: solid 0.5px #bcb9b9;
 `;
 
 const Footer = styled.div`

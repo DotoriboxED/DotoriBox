@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import style from "../components/PageResource";
-import image from "../img/TestSampleImg.png";
 import Card from "../components/Card";
 import { useHistory, useLocation } from "react-router-dom";
 import Progressbar from "../components/Progressbar";
