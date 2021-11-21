@@ -6,18 +6,26 @@ import "./Navbar.css";
 import styled from "styled-components";
 import {ReactComponent as LogoImg} from "../img/logo_orange.svg";
 
+const NavBarContainer = styled.div`
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+`;
+
 const Logo = styled(LogoImg)`
   height: 17px;
   margin: auto auto auto 25px;
 `;
 
 const NavBar = styled.div`
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 80px;
   display: flex;
   vertical-align: center;
   z-index: 1001;
+  background-color: #ffff;
 `;
 
 const MenuIcon = styled(FaIcons.FaBars)`
@@ -64,12 +72,14 @@ function Navbar() {
 
   return (
     <>
+      <NavBarContainer>
       <NavBar>
         <Logo fill={location.pathname === '/' && !sidebar? '#FFF' : "#c4442a"}/>
         {
           sidebar ? <CloseIcon onClick={showSidebar}/> : <MenuIcon onClick={showSidebar} />
         }
       </NavBar>
+      </NavBarContainer>
       {
         sidebar &&
           <NavMenu>
