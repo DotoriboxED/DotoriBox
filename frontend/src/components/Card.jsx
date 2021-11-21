@@ -54,11 +54,24 @@ const Card = ({
   className,
   stock,
 }) => {
-  let age;
+  const targetText = () => {
+    target.sort((a, b) => {
+      return a.age - b.age;
+    })
 
-  if (target.length === 1) age = target[0].age;
-  else {
-    age = `${target[0].age} ~ ${target[target.length - 1].age}`
+    const age = target.length === 1 ? target[0].age : `${target[0].age} ~ ${target[target.length - 1].age}`;
+
+    return (
+      <>
+        {!target[0].age ? "전연령" : age}대
+        {target[0].isMale === null
+          ? ""
+          : target[0].isMale
+            ? "남성"
+            : "여성"}{" "}
+        추천
+      </>
+    )
   }
 
   return (
@@ -70,13 +83,7 @@ const Card = ({
             <h2>{name}</h2>
           </Manufactured>
           <ItemFor>
-            {!target[0].age ? "전연령" : age}대
-            {target[0].isMale === null
-              ? ""
-              : target[0].isMale
-              ? "남성"
-              : "여성"}{" "}
-            추천
+            {targetText()}
           </ItemFor>
         </Gradient>
         <Image src={image} stock={stock} />
