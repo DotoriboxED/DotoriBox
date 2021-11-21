@@ -15,7 +15,7 @@ const SampleImage = styled.div`
 const Image = styled.img`
   width: 76.5%;
   height: 100%;
-  -webkit-filter: grayscale(${props => props.stock > 0 ? '0%' : '100%'});
+  -webkit-filter: grayscale(${(props) => (props.stock > 0 ? "0%" : "100%")});
 `;
 
 const Gradient = styled.div`
@@ -32,8 +32,8 @@ const Manufactured = styled.div`
   position: absolute;
   bottom: 1.313rem;
   left: 1rem;
-  text-decoration: ${props => props.stock > 0? 'none' : 'line-through'};
-`
+  text-decoration: ${(props) => (props.stock > 0 ? "none" : "line-through")};
+`;
 
 const ItemFor = styled.div`
   color: white;
@@ -43,9 +43,24 @@ const ItemFor = styled.div`
   bottom: 1.6rem;
   right: 1rem;
   padding: 2px;
-`
+`;
 
-const Card = ({ image, manufacture, name, target, onClick, className, stock }) => {
+const Card = ({
+  image,
+  manufacture,
+  name,
+  target,
+  onClick,
+  className,
+  stock,
+}) => {
+  let age;
+
+  if (target.length === 1) age = target[0].age;
+  else {
+    age = `${target[0].age} ~ ${target[target.length - 1].age}`
+  }
+
   return (
     <div className={className} onClick={onClick}>
       <SampleImage>
@@ -54,12 +69,20 @@ const Card = ({ image, manufacture, name, target, onClick, className, stock }) =
             <h4>{manufacture}</h4>
             <h2>{name}</h2>
           </Manufactured>
-          <ItemFor>{target} 추천</ItemFor>
+          <ItemFor>
+            {!target[0].age ? "전연령" : age}대
+            {target[0].isMale === null
+              ? ""
+              : target[0].isMale
+              ? "남성"
+              : "여성"}{" "}
+            추천
+          </ItemFor>
         </Gradient>
-        <Image src={image} stock={stock}/>
+        <Image src={image} stock={stock} />
       </SampleImage>
     </div>
-  )
-}
+  );
+};
 
 export default Card;

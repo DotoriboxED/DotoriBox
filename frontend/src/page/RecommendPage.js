@@ -82,19 +82,7 @@ function RecommendPage() {
                 image={samples[0].sample.image}
                 manufacture={samples[0].sample.sampleInfo.manufacture}
                 name={samples[0].sample.sampleInfo.name}
-                target={`
-                        ${
-                          !samples[0].sample.sampleTarget.age
-                            ? "전연령"
-                            : samples[0].sample.sampleTarget.age
-                        }대
-                    ${
-                      samples[0].sample.sampleTarget.isMale === null? '':
-                      samples[0].sample.sampleTarget.isMale
-                        ? "남성"
-                        : "여성"
-                    }
-                  `}
+                target={samples[0].sample.sampleTargets}
                 stock={samples[0].stock}
               />
             )}
@@ -106,19 +94,7 @@ function RecommendPage() {
                   image={elem.sample.image}
                   manufacture={elem.sample.sampleInfo.manufacture}
                   name={elem.sample.sampleInfo.name}
-                  target={`
-                          ${
-                            !elem.sample.sampleTarget.age
-                              ? "전연령"
-                              : elem.sample.sampleTarget.age
-                          }대
-                          ${
-                            elem.sample.sampleTarget.isMale === null &&
-                            elem.sample.sampleTarget.isMale
-                              ? "남성"
-                              : "여성"
-                          }
-                      `}
+                  target={elem.sample.sampleTargets}
                   stock={elem.stock}
                 />
               );
