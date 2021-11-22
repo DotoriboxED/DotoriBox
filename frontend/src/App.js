@@ -29,13 +29,17 @@ const Nav = styled(Navbar)`
   width: 100%;
 `;
 
+const Block = styled.div`
+    height: 80px;
+`;
+
 function App() {
   return (
     <Router>
     <Background>
         <Nav />
         <Page>
-
+          <Block />
           <Switch>
             <Route path='/' exact component={pages.MainPage}/>
             <Route path='/selectInfo' component={pages.SelectInfoPage}/>
