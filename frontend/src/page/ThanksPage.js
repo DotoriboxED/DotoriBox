@@ -89,23 +89,11 @@ function ThanksPage() {
       {
         sample &&
         <Card
-          image={sample.image}
-          manufacture={sample.sampleInfo.manufacture}
-          name={sample.sampleInfo.name}
-          target={`
-                        ${
-            !sample.sampleTarget.age
-              ? "전연령"
-              : sample.sampleTarget.age
-          }대
-                    ${
-            sample.sampleTarget.isMale === null? '':
-            sample.sampleTarget.isMale
-              ? "남성"
-              : "여성"
-          }
-                  `}
-          stock={1}
+            image={sample.image}
+            manufacture={sample.sampleInfo.manufacture}
+            name={sample.sampleInfo.name}
+            target={sample.sampleTargets}
+            stock={1}
         />
       }
       <Footer>

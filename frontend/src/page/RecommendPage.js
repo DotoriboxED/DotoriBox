@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import style from "../components/PageResource";
 import Card from "../components/Card";
 import styled from "styled-components";
-import MiniCard from "../components/MiniCard";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
-import image from "../img/TestSampleImg.png";
 import { TaxiAPI, CustomerAPI } from "../API";
 import { useHistory, useLocation } from "react-router-dom";
 
@@ -32,6 +30,10 @@ const FirstCard = styled(Card)`
 
 const MiniCards = styled.div`
   margin-top: 3vh;
+`;
+
+const Placeholders = styled.div`
+    padding-bottom: 15px;
 `;
 
 function RecommendPage() {
@@ -112,8 +114,10 @@ function RecommendPage() {
             <MiniCard />
             <MiniCard />
           </MiniCards> */}
-      <PlaceHolder></PlaceHolder>
-      <PlaceHolder></PlaceHolder>
+      <Placeholders>
+          <PlaceHolder/>
+          <PlaceHolder/>
+      </Placeholders>
     </Main>
   );
 }

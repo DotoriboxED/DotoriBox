@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BiSearchAlt2 } from 'react-icons/bi';
 
 const Info = styled.div`
   margin: 35px 0 35px 0;
@@ -33,6 +34,8 @@ const Main = styled.div`
 const InfoText = styled(Text)`
   margin-top: auto;
 `;
+
+
 
 function InformPage() {
   return (

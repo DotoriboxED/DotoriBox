@@ -3,8 +3,10 @@ import styled from "styled-components";
 import Style from "../components/PageResource";
 import Progressbar from "../components/Progressbar";
 import MiniCard from "../components/MiniCard";
+import Card from "../components/Card";
 import { useHistory, useLocation } from "react-router-dom";
-import { SampleAPI } from '../API';
+import { BiSearchAlt2 } from 'react-icons/bi';
+import {SampleAPI} from '../API';
 
 const { Header, Button } = Style;
 
@@ -61,11 +63,43 @@ const SubmitButton = styled(Button)`
   margin-top: 1.188rem;
 `;
 
+const ViewInfo = styled.div`
+  border: #c4442a 2px solid;
+  border-radius: 8px;
+  color: #c4442a;
+  font-weight: 540;
+  font-size: 0.7rem;
+  width: fit-content;
+  padding: 1px 3px 1px 2px;
+  display: flex;
+`;
+
+const SampleCard = styled(Card)`
+  margin: 0;
+  position: fixed;
+  top: 12rem;
+`;
+
+const SearchIcon = styled(BiSearchAlt2)`
+  color: #c4442a;
+  margin: auto;
+`;
+
+const CardBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vh;
+  height: 100vh;
+  z-index: 1002;
+`;
+
 function ExperiencePage() {
   const location = useLocation();
   const history = useHistory();
   const { sampleId, taxiId, customerId } = location.state;
   const [sample, setSample] = useState({ sampleInfo: {} });
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     SampleAPI.getSample(sampleId).then(res => {
@@ -84,6 +118,20 @@ function ExperiencePage() {
         sample.sampleInfo && <>
           <MiniHeader>{sample.sampleInfo.manufacture}</MiniHeader>
           <Header>{sample.sampleInfo.name} 체험하기</Header>
+          <ViewInfo onClick={() => setIsOpen(true)}><SearchIcon/>제품 확인</ViewInfo>
+          {
+            isOpen &&
+            <div>
+              <SampleCard
+                  image={sample.image}
+                  manufacture={sample.sampleInfo.manufacture}
+                  name={sample.sampleInfo.name}
+                  target={sample.sampleTargets}
+                  stock={1}
+              />
+              <CardBackground onClick={() => setIsOpen(false)} />
+            </div>
+          }
           <InfoTable>
             <tbody>
             <InfoTableRow>
