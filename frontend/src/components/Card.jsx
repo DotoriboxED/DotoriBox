@@ -16,6 +16,7 @@ const Image = styled.img`
   width: 76.5%;
   height: 100%;
   -webkit-filter: grayscale(${(props) => (props.stock > 0 ? "0%" : "100%")});
+  border-radius: 3%;
 `;
 
 const Gradient = styled.div`
@@ -30,7 +31,7 @@ const Gradient = styled.div`
 const Manufactured = styled.div`
   color: white;
   position: absolute;
-  bottom: 1.313rem;
+  bottom: 2.7rem;
   left: 1rem;
   text-decoration: ${(props) => (props.stock > 0 ? "none" : "line-through")};
 `;
@@ -40,9 +41,8 @@ const ItemFor = styled.div`
   border: white solid 1px;
   font-size: 0.5rem;
   position: absolute;
-  bottom: 1.6rem;
-  right: 1rem;
   padding: 2px;
+  margin-top: 4px;
 `;
 
 const Card = ({
@@ -81,10 +81,10 @@ const Card = ({
           <Manufactured stock={stock}>
             <h4>{manufacture}</h4>
             <h2>{name}</h2>
+            <ItemFor>
+              {targetText()}
+            </ItemFor>
           </Manufactured>
-          <ItemFor>
-            {targetText()}
-          </ItemFor>
         </Gradient>
         <Image src={image} stock={stock} />
       </SampleImage>

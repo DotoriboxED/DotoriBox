@@ -25,7 +25,7 @@ const NavBar = styled.div`
   display: flex;
   vertical-align: center;
   z-index: 1001;
-  background-color: #ffff;
+  background-color: ${props => props.isFirst ? 'transparent' : '#FFFFFF'}
 `;
 
 const MenuIcon = styled(FaIcons.FaBars)`
@@ -73,7 +73,7 @@ function Navbar() {
   return (
     <>
       <NavBarContainer>
-      <NavBar>
+      <NavBar isFirst={location.pathname === '/'}>
         <Logo fill={location.pathname === '/' && !sidebar? '#FFF' : "#c4442a"}/>
         {
           sidebar ? <CloseIcon onClick={showSidebar}/> : <MenuIcon onClick={showSidebar} />
