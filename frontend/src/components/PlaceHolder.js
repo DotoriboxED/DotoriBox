@@ -5,6 +5,7 @@ const Container = styled.div`
     width: 100%;
     height: 6.625rem;
     display: flex;
+    margin: 7.5px 0 7.5px 0; 
 `;
 
 const Picture = styled.div`
@@ -21,8 +22,6 @@ const TextContainer = styled.div`
     flex-direction: column;
     top: 10px;
 `;
-
-
 
 const Text_1 = styled.div`
     width: 9rem;

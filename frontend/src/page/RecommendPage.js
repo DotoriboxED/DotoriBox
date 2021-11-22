@@ -113,6 +113,7 @@ function RecommendPage() {
             <MiniCard />
           </MiniCards> */}
       <PlaceHolder></PlaceHolder>
+      <PlaceHolder></PlaceHolder>
     </Main>
   );
 }
