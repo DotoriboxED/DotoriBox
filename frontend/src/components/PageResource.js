@@ -4,6 +4,7 @@ import {FcCheckmark} from "react-icons/fc";
 
 
 
+
 const Header = styled.h2`
   padding-bottom: 10px;
   font-size: 1.563rem;
@@ -77,7 +78,8 @@ const BanSharp = styled(IoBanSharp)`
   color: red;
 `;
 
-const InputData = ({ white, placeholder, onChange, className, checkIcon}) => {
+const InputData = ({white, placeholder, onChange, className, checkIcon}) => {
+
   return (
     <div className={className}>
       <InputContainer>

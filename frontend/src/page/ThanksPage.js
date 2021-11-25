@@ -18,6 +18,7 @@ const Header = styled.h2`
 
 const Input = styled(InputData)`
   margin-top: 20px;
+
 `;
 
 const Main = styled.div`
@@ -68,14 +69,31 @@ function ThanksPage() {
   const history = useHistory();
   const location = useLocation();
   const [sample, setSample] = useState();
-
+  const [phoneNum, setPhoneNum] = useState();
+  
+  
   const { sampleId, taxiId, customerId } = location.state;
-
+  
   useEffect(() => {
     SampleAPI.getSample(sampleId).then((res) => {
       setSample(res.data);
     });
   }, []);
+  
+  const onPhoneNumChange = (e) => {
+
+    switch(e.target.value.length) {
+      case 3: if (phoneNum.length === 2) e.target.value = e.target.value.concat('-');  break;
+      case 4: e.target.value = e.target.value.substring(0,4); break;
+      case 8: if (phoneNum.length === 7) e.target.value=e.target.value.concat('-'); break;
+      case 9: e.target.value = e.target.value.substring(0,9); break;
+      case 14: e.target.value = e.target.value.substring(0,13); break;
+      default: break;
+    }
+
+    setPhoneNum(e.target.value);
+  }
+
 
   return (
     <Main>
@@ -101,9 +119,9 @@ function ThanksPage() {
           📣 체험한 샘플을 최대 80% 저렴하게 구매하는 방법
         </SampleText>
         <TicketText>온라인 할인쿠폰을 보내드립니다</TicketText>
-        <Input placeholder="전화번호를 입력 해 주세요." />
+        <Input onChange={onPhoneNumChange} placeholder="전화번호를 입력 해 주세요." />
         <SubmitButton>아직은 쿠폰을 받을 수 없어요</SubmitButton>
-        <InfoText onClick={() => history.push("/information")}>
+        <InfoText  onClick={() => history.push("/information")}>
           휴대폰 번호 및 개인정보 수집, 이용에 동의합니다.
         </InfoText>
       </Footer>
