@@ -113,7 +113,7 @@ function ExperiencePage() {
 
   return (
     <Main>
-      <Progressbar state={sampleId} />
+      <Progressbar state={3} />
       {
         sample.sampleInfo && <>
           <MiniHeader>{sample.sampleInfo.manufacture}</MiniHeader>
