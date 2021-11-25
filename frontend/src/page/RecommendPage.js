@@ -11,6 +11,10 @@ const { Header, Text } = style;
 
 const Main = styled.div``;
 
+const PlaceHolderHeader = styled(Header)`
+  padding-top: 10px;
+`;
+
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -108,7 +112,7 @@ function RecommendPage() {
         {/*<SampleCard image={image} />*/}
         {/*<SampleCard image={image} />*/}
       </Container>
-      <Header>모든 샘플</Header>
+      <PlaceHolderHeader>모든 샘플</PlaceHolderHeader>
       <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
       {/* <MiniCards>
             <MiniCard />

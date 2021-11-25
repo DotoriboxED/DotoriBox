@@ -5,7 +5,7 @@ const Container = styled.div`
     width: 100%;
     height: 6.625rem;
     display: flex;
-    margin: 7.5px 0 7.5px 0; 
+    margin: 24px 0 9px 0; 
 `;
 
 const Picture = styled.div`
@@ -21,6 +21,7 @@ const TextContainer = styled.div`
     position: relative;
     flex-direction: column;
     top: 10px;
+    left: 10px;
 `;
 
 const Text_1 = styled.div`
@@ -72,7 +73,6 @@ function PlaceHolder(){
             <Text_3></Text_3>
             <Text_4></Text_4>
         </Texts>
-        
     </TextContainer>
 </Container>
    )        
