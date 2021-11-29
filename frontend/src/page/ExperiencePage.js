@@ -139,11 +139,11 @@ function ExperiencePage() {
               <InfoContent>{sample.sampleInfo.name}</InfoContent>
             </InfoTableRow>
             <InfoTableRow>
-              <InfoTitle>식품의 유형</InfoTitle>
+              <InfoTitle>제품 유형</InfoTitle>
               <InfoContent>{sample.sampleInfo.sampleType}</InfoContent>
             </InfoTableRow>
             <InfoTableRow>
-              <InfoTitle>섭취 방법</InfoTitle>
+              <InfoTitle>사용 방법</InfoTitle>
               <InfoContent>{sample.sampleInfo.method}</InfoContent>
             </InfoTableRow>
             <InfoTableRow>
