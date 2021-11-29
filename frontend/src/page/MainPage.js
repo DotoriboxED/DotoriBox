@@ -12,6 +12,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   color: #ffffff;
+  width: 100%;
   background: url("../../src/img/mainimg.png");
 `;
 
@@ -66,7 +67,7 @@ function MainPage() {
     } else if (e.target.value.length===0){
       setCheck(undefined);
     } else if (e.target.value.length > 5) {
-      setCheck(false)
+      setCheck(false);
     }
   }
 

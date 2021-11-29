@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://dotoribox-env.eba-7wwenxk7.ap-northeast-2.elasticbeanstalk.com'
+  baseURL: 'http://dotoribox-backend.ap-northeast-2.elasticbeanstalk.com/'
 });
 
 export const TaxiAPI = {

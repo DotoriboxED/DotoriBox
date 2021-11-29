@@ -4,12 +4,17 @@ import Card from "../components/Card";
 import styled from "styled-components";
 import Progress from "../components/Progressbar";
 import PlaceHolder from "../components/PlaceHolder";
+import PlaceHolderMos from "../components/PlaceHolderMos";
 import { TaxiAPI, CustomerAPI } from "../API";
 import { useHistory, useLocation } from "react-router-dom";
 
 const { Header, Text } = style;
 
 const Main = styled.div``;
+
+const RecommendText = styled(Text)`
+  /* margin-bottom: 15px; */
+`;
 
 const PlaceHolderHeader = styled(Header)`
   padding-top: 10px;
@@ -21,7 +26,7 @@ const Container = styled.div`
   overflow: scroll;
   width: calc(100% + 50px);
   z-index: 1;
-  margin: 0 -25px 0 -25px; ;
+  margin: 0 -25px 0 -25px;
 `;
 
 const SampleCard = styled(Card)`
@@ -113,14 +118,15 @@ function RecommendPage() {
         {/*<SampleCard image={image} />*/}
       </Container>
       <PlaceHolderHeader>모든 샘플</PlaceHolderHeader>
-      <Text>택시에 있는 모든 종류의 샘플을 보여드려요</Text>
+      <RecommendText>택시에 있는 모든 종류의 샘플을 보여드려요</RecommendText>
       {/* <MiniCards>
             <MiniCard />
             <MiniCard />
           </MiniCards> */}
       <Placeholders>
-          <PlaceHolder/>
-          <PlaceHolder/>
+          <PlaceHolderMos length={1}/>
+          <PlaceHolderMos length={2}/>
+          <PlaceHolder length={3}/>
       </Placeholders>
     </Main>
   );
